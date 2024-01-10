@@ -1,3 +1,4 @@
+import { FaPlus } from "react-icons/fa";
 import { SiChainlink } from "react-icons/si";
 import Button from "../UI/Button";
 import LoginButton from "./LoginButton";
@@ -12,6 +13,9 @@ const FirstRow = (props: Props) => {
                 <SiChainlink className="w-8 h-8" />
             </Button>
             <SearchBar />
+            <Button link="/add">
+                <FaPlus className="w-8 h-8" />
+            </Button>
             <LoginButton />
         </div>
     );
