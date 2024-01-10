@@ -23,27 +23,36 @@ const AddItem = (props: Props) => {
                 onSubmit={handleSubmit(onSubmit)}
                 className="flex flex-col gap-2 justify-center items-center"
             >
-                                <p className="title p-1 text-xl">title</p>
-                <input
-                    defaultValue="title"
-                    className="bg-primary p-2 rounded-md"
-                    {...register("title", { required: true })}
-                />
-                                <p className="description p-1 text-xl">description</p>
-                <input
-                    defaultValue="description"
-                    className="bg-primary p-2 rounded-md"
-
-                    {...register("description", { required: true })}
-                />
-                <p className="image_url p-1 text-xl">image_url</p>
-                <input
-                    defaultValue="image_url"
-                    className="bg-primary p-2 rounded-md"
-
-                    {...register("image_url", { required: true })}
-                />
-                <button type="submit">Add item</button>
+                <div className="">
+                    <p className="title p-1 text-2xl">title</p>
+                    <input
+                        defaultValue="title"
+                        className="bg-primary p-2 rounded-md"
+                        {...register("title", { required: true })}
+                    />
+                </div>
+                <div className="">
+                    <p className="description p-1 text-2xl">description</p>
+                    <input
+                        defaultValue="description"
+                        className="bg-primary p-2 rounded-md"
+                        {...register("description", { required: true })}
+                    />
+                </div>
+                <div className="">
+                    <p className="image_url p-1 text-2xl">image_url</p>
+                    <input
+                        defaultValue="image_url"
+                        className="bg-primary p-2 rounded-md"
+                        {...register("image_url", { required: true })}
+                    />
+                </div>
+                <button
+                    type="submit"
+                    className="w-full bg-primary p-2"
+                >
+                    Add item
+                </button>
             </form>
             {errors.title && <span>Title is required</span>}
             {errors.description && <span>Description is required</span>}
