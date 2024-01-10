@@ -1,3 +1,5 @@
+import SearchBar from "./SearchBar";
+
 type Props = {};
 
 const Navbar = (props: Props) => {
