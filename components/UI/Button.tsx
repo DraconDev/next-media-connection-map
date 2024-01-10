@@ -4,7 +4,7 @@ type Props = {
 };
 
 const Button = (props: Props) => {
-    return <div className="p-2 bg-secondary">{props.children}</div>;
+    return <button className="p-2 bg-secondary ">{props.children}</button>;
 };
 
 export default Button;

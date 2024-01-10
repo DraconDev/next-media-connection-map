@@ -5,11 +5,10 @@ type Props = {};
 
 const Navbar = (props: Props) => {
     return (
-        <div>
+        <div className="p-2 fixed flex w-full">
             <SearchBar />
             Navbar
             <Tags />
-            
         </div>
     );
 };

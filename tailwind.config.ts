@@ -14,9 +14,10 @@ const config: Config = {
                     "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
             },
             colors: {
-                primary: "hsl(0, 100%, 50%)",
-                secondary: "hsl(120, 100%, 50%)",
-                tertiary: "hsl(250, 100%, 50%)",
+                primary: "hsl(180, 0%,100%)",
+                secondary: "hsl(0,0%, 20%)",
+                accent: "hsl(250, 0%, 30%)",
+                font: "hsl(0, 0%, 100%)",
             },
         },
     },
