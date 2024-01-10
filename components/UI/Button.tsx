@@ -11,7 +11,8 @@ type Props = {
 };
 
 const Button = (props: Props) => {
-    const style = "p-2 bg-primary rounded-lg py-1";
+    const style =
+        "p-2 bg-primary rounded-lg  hover:bg-accent text-xl hover:text-primary";
     return props.link ? (
         <Link
             className={style}

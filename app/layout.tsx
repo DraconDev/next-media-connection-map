@@ -1,9 +1,9 @@
 import Navbar from "@/components/Navbar/Navbar";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Kanit } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const kanit = Kanit({ subsets: ["latin"], weight: "400" });
 
 export const metadata: Metadata = {
     title: "MedConMap",
@@ -21,10 +21,10 @@ export default function RootLayout({
             className="relative"
         >
             <body
-                className={`min-h-screen ${inter.className}  text-font bg-secondary `}
+                className={`min-h-screen ${kanit.className}  text-font bg-secondary `}
             >
                 <Navbar />
-                <div className="w-full h-full pt-[50px]">{children}</div>
+                <div className="w-full h-full pt-[80px]">{children}</div>
             </body>
         </html>
     );

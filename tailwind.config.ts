@@ -16,7 +16,7 @@ const config: Config = {
             colors: {
                 primary: "hsl(250, 0%, 30%)",
                 secondary: "hsl(0,0%, 20%)",
-                accent: "hsl(150, 60%, 30%)",
+                accent: "hsl(60, 80%, 50%)",
                 font: "hsl(0, 0%, 100%)",
             },
         },
