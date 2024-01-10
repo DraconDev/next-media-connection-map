@@ -1,3 +1,4 @@
+"use client";
 type Props = {
     onClick?: () => void;
     children?: JSX.Element | JSX.Element[] | string;

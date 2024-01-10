@@ -5,7 +5,7 @@ type Props = {};
 
 const Navbar = (props: Props) => {
     return (
-        <div className="p-2 fixed flex w-full">
+        <div className="p-2 fixed flex w-full bg-primary">
             <SearchBar />
             Navbar
             <Tags />
