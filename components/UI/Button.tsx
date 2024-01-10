@@ -9,6 +9,7 @@ type Props = {
     children?: JSX.Element | JSX.Element[] | string;
     link?: string;
     override?: string;
+    type?: "button" | "submit" ;
 };
 
 const Button = (props: Props) => {
@@ -26,6 +27,7 @@ const Button = (props: Props) => {
         <button
             className={style}
             onClick={props?.action}
+            type={props?.type ? props.type : "button"}
         >
             {props?.children}
         </button>

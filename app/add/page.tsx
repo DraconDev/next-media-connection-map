@@ -1,4 +1,5 @@
 "use client";
+import Button from "@/components/UI/Button";
 import { SubmitHandler, useForm } from "react-hook-form";
 type FormData = {
     title: string;
@@ -17,7 +18,7 @@ const AddItem = (props: Props) => {
 
     const onSubmit: SubmitHandler<FormData> = (data) => console.log(data);
     return (
-        <div className=" p-2 bg-red flex flex-col gap-2 justify-center items-center h-[80vh]">
+        <div className=" p-2 bg-red flex flex-col gap-3 justify-center items-center h-[80vh]">
             <h1 className="text-4xl">Add an item</h1>
             <form
                 onSubmit={handleSubmit(onSubmit)}
@@ -53,6 +54,7 @@ const AddItem = (props: Props) => {
                 >
                     Add item
                 </button>
+                <Button type="submit">Add item</Button>
             </form>
             {errors.title && <span>Title is required</span>}
             {errors.description && <span>Description is required</span>}
