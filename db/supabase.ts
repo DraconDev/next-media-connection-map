@@ -1,6 +1,7 @@
 import { createClient } from "@supabase/supabase-js";
 
-export default async function GetItems() {
+// connect supabase
+async function GetSupabase() {
     const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
     const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
@@ -10,6 +11,12 @@ export default async function GetItems() {
 
     const supabase = createClient(supabaseUrl, supabaseKey);
 
+    return supabase;
+}
+
+export default async function GetItems() {
+    const supabase = await GetSupabase();
+
     try {
         const { data } = await supabase.from("items").select();
         return data;
@@ -17,4 +24,13 @@ export default async function GetItems() {
         console.error("Error fetching items:", error);
         throw error; // Re-throw the error for handling elsewhere
     }
+}
+
+// add card to supabase items
+export async function AddItem(
+    title: string,
+    description: string,
+    image_url: string
+) {
+    const supabase = await GetSupabase();
 }
