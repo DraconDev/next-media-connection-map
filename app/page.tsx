@@ -5,6 +5,7 @@ export default function Home() {
     return (
         <main>
             <Button>Testing</Button>
+            <Itemlist/>
             <Footer />
         </main>
     );
