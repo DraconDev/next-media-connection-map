@@ -5,14 +5,16 @@ import Link from "next/link";
 // import link
 
 type Props = {
-    onClick?: () => void;
+    action?: () => void;
     children?: JSX.Element | JSX.Element[] | string;
     link?: string;
+    override?: string;
 };
 
 const Button = (props: Props) => {
     const style =
-        "p-2 bg-primary rounded-lg  hover:bg-accent text-xl hover:text-primary";
+        "p-2 bg-primary rounded-lg  hover:bg-accent text-xl hover:text-primary transition-all duration-300 outline-1 outline-accent" +
+        ` ${props?.override && props.override}`;
     return props.link ? (
         <Link
             className={style}
@@ -21,7 +23,12 @@ const Button = (props: Props) => {
             {props?.children}
         </Link>
     ) : (
-        <button className={style}>{props?.children}</button>
+        <button
+            className={style}
+            onClick={props?.action}
+        >
+            {props?.children}
+        </button>
     );
 };
 
