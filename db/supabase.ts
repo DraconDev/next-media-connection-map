@@ -27,7 +27,7 @@ export default async function GetItems() {
 }
 
 // add card to supabase items
-export async function AddItem(
+export async function AddItemToDB(
     title: string,
     description: string,
     image_url: string
