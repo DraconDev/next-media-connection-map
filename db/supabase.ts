@@ -33,4 +33,13 @@ export async function AddItem(
     image_url: string
 ) {
     const supabase = await GetSupabase();
+
+    try {
+        const { data, error } = await supabase
+            .from("items")
+            .insert({ title, description, image_url });
+    } catch (error) {
+        console.error("Error adding item:", error);
+        throw error; // Re-throw the error for handling elsewhere
+    }
 }
