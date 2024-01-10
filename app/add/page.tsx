@@ -17,14 +17,14 @@ const AddItem = (props: Props) => {
 
     const onSubmit: SubmitHandler<FormData> = (data) => console.log(data);
     return (
-        <div className="h-screen p-2 bg-red flex flex-col gap-2 justify-center items-center">
-            <h1>Add an item</h1>
+        <div className=" p-2 bg-red flex flex-col gap-2 justify-center items-center h-[80vh]">
+            <h1 className="text-4xl">Add an item</h1>
             <form
                 onSubmit={handleSubmit(onSubmit)}
                 className="flex flex-col gap-2 justify-center items-center"
             >
                 <div className="">
-                    <p className="title p-1 text-2xl">title</p>
+                    <p className="title p-1 text-2xl">Title</p>
                     <input
                         defaultValue="title"
                         className="bg-primary p-2 rounded-md"
@@ -32,7 +32,7 @@ const AddItem = (props: Props) => {
                     />
                 </div>
                 <div className="">
-                    <p className="description p-1 text-2xl">description</p>
+                    <p className="description p-1 text-2xl">Description</p>
                     <input
                         defaultValue="description"
                         className="bg-primary p-2 rounded-md"
@@ -40,7 +40,7 @@ const AddItem = (props: Props) => {
                     />
                 </div>
                 <div className="">
-                    <p className="image_url p-1 text-2xl">image_url</p>
+                    <p className="image_url p-1 text-2xl">Image url</p>
                     <input
                         defaultValue="image_url"
                         className="bg-primary p-2 rounded-md"
