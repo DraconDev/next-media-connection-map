@@ -1,5 +1,6 @@
 "use client";
 import Button from "@/components/UI/Button";
+import { AddItemToDB } from "@/db/supabase";
 import { SubmitHandler, useForm } from "react-hook-form";
 type FormData = {
     title: string;
@@ -16,7 +17,10 @@ const AddItem = (props: Props) => {
         formState: { errors },
     } = useForm<FormData>();
 
-    const onSubmit: SubmitHandler<FormData> = (data) => console.log(data);
+    const onSubmit: SubmitHandler<FormData> = (data) => {
+        console.log(data);
+        AddItemToDB(data.title, data.description, data.image_url);
+    };
     return (
         <div className=" p-2 bg-red flex flex-col gap-3 justify-center items-center h-[80vh] w-full">
             <h1 className="text-4xl">Add an item</h1>
