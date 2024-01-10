@@ -9,6 +9,7 @@ const Navbar = (props: Props) => {
             <SearchBar />
             Navbar
             <Tags />
+            
         </div>
     );
 };
