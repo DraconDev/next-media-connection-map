@@ -5,6 +5,7 @@ import { GrSearch } from "react-icons/gr";
 import Button from "../UI/Button";
 import GetItems, { SearchByTitle } from "@/db/supabase";
 import { useQuery } from "react-query";
+import { QueryClient } from "@tanstack/react-query";
 
 type Props = {};
 
@@ -15,12 +16,9 @@ const SearchBar = (props: Props) => {
         isLoading,
         error,
         data: items,
-        refetch,
     } = useQuery(["items"], () => SearchByTitle(value), {
         enabled: value !== "",
     });
-
-    queryClient.
 
     return (
         <div className="flex w-full grow hover:outline-1 outline-accent">
@@ -34,7 +32,6 @@ const SearchBar = (props: Props) => {
                 override="bg-secondary rounded-lg rounded-l-none"
                 action={() => {
 
-                    refetch();
                     setValue("");
                 }}
             >
