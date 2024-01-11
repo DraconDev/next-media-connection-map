@@ -10,7 +10,7 @@ const Itemlist = (props: Props) => {
     const { data } = useQuery({ queryKey: ["todos"], queryFn: GetItems });
 
     return (
-        <div className="min-h-[76vh] p-2">
+        <div className="min-h-[76vh] p-2 flex gap-2">
             {data &&
                 data.map((item: ItemType) => (
                     <Item
