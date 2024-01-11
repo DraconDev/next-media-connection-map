@@ -19,6 +19,7 @@ export default async function GetItems() {
 
     try {
         const { data } = await supabase.from("items").select();
+        console.log(data)
         return data;
     } catch (error) {
         console.error("Error fetching items:", error);
