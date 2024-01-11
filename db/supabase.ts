@@ -1,4 +1,5 @@
 import { createClient } from "@supabase/supabase-js";
+import { text } from "stream/consumers";
 
 // connect supabase
 async function GetSupabase() {
@@ -50,7 +51,11 @@ export async function AddItemToDB(
 // search db for item based on title
 export async function SearchByTitle(text: string) {
     const supabase = await GetSupabase();
-    const { data } = await supabase.from("items").select().like("title", text);
+    const { data } = await supabase
+        .from("items")
+        .select("*")
+        .filter("title", "ilike", `%${text}%`);
+
     console.log(data);
     return data;
 }

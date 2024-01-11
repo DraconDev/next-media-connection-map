@@ -3,12 +3,24 @@
 import { useState } from "react";
 import { GrSearch } from "react-icons/gr";
 import Button from "../UI/Button";
-import { SearchByTitle } from "@/db/supabase";
+import GetItems, { SearchByTitle } from "@/db/supabase";
+import { useQuery } from "react-query";
 
 type Props = {};
 
 const SearchBar = (props: Props) => {
     const [value, setValue] = useState("");
+
+    const {
+        isLoading,
+        error,
+        data: items,
+        refetch,
+    } = useQuery(
+        ["items"],
+        () => SearchByTitle(value),
+        { enabled: value !== "" } // Optimize fetching
+    );
 
     return (
         <div className="flex w-full grow hover:outline-1 outline-accent">
@@ -20,7 +32,11 @@ const SearchBar = (props: Props) => {
             />
             <Button
                 override="bg-secondary rounded-lg rounded-l-none"
-                action={() => SearchByTitle(value)}
+                action={() => {
+                    // Trigger refetch
+                    refetch();
+                    setValue(""); // Clear input field
+                }}
             >
                 <GrSearch className={"w-9 h-9"} />
             </Button>

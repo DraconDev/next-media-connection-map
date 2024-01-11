@@ -7,7 +7,7 @@ import Item from "./Item";
 type Props = {};
 
 const Itemlist = (props: Props) => {
-    const { data } = useQuery({ queryKey: ["todos"], queryFn: GetItems });
+    const { data } = useQuery({ queryKey: ["items"], queryFn: GetItems });
 
     return (
         <div className="min-h-[76vh] p-2 flex gap-2">
