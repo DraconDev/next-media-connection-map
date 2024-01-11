@@ -19,7 +19,7 @@ export default async function GetItems() {
 
     try {
         const { data } = await supabase.from("items").select();
-        console.log(data)
+        console.log(data);
         return data;
     } catch (error) {
         console.error("Error fetching items:", error);
@@ -35,7 +35,7 @@ export async function AddItemToDB(
     tags?: string[]
 ) {
     const supabase = await GetSupabase();
-    console.log(title)
+    console.log(title);
 
     try {
         const { data, error } = await supabase
@@ -48,8 +48,9 @@ export async function AddItemToDB(
 }
 
 // search db for item based on title
-export async function SearchByTitle (
-
-) {
-
+export async function SearchByTitle(text: string) {
+    const supabase = await GetSupabase();
+    const { data } = await supabase.from("items").select().like("title", text);
+    console.log(data);
+    return data;
 }

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { GrSearch } from "react-icons/gr";
 import Button from "../UI/Button";
+import { SearchByTitle } from "@/db/supabase";
 
 type Props = {};
 
@@ -17,7 +18,10 @@ const SearchBar = (props: Props) => {
                 value={value}
                 onChange={(e) => setValue(e.target.value)}
             />
-            <Button override="bg-secondary rounded-lg rounded-l-none">
+            <Button
+                override="bg-secondary rounded-lg rounded-l-none"
+                action={() => SearchByTitle(value)}
+            >
                 <GrSearch className={"w-9 h-9"} />
             </Button>
         </div>
