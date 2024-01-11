@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar/Navbar";
 import QueryProvider from "@/components/ReactQuery/QueryProvider";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import type { Metadata } from "next";
 import { Kanit } from "next/font/google";
 import "./globals.css";
@@ -30,6 +31,7 @@ export default function RootLayout({
                         {children}
                     </div>
                 </body>
+                <ReactQueryDevtools initialIsOpen />
             </QueryProvider>
         </html>
     );
