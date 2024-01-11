@@ -5,27 +5,27 @@ import Link from "next/link";
 const Item = (item: ItemType) => {
     return (
         <Link
-            className="flex flex-col gap-1  w-fit h-fit"
+            className="flex flex-col gap-1   h-fit"
             href={`/item/${item.title.replace(" ", "-")}`}
         >
             <Image
                 src={item.image_url ?? "/public/placeholder.jpg"}
                 alt={item.title}
-                className="rounded-lg object-cover w-[200px] h-[250px] "
-                width={100}
-                height={180}
+                className="rounded-lg object-cover md:w-[250px] md:h-[300px] w-[160px] h-[200px] grow"
+                width={700}
+                height={700}
                 loader={() => item.image_url ?? "/public/placeholder.jpg"}
             ></Image>
+            <div>{item.title}</div>
             {item.tags &&
                 item.tags.map((tag) => (
                     <div
                         key={tag}
-                        className="text-primary bg-accent px-1 w-fit rounded-lg"
+                        className="text-primary bg-accent px-1 w-fit rounded-lg text-sm"
                     >
                         {tag[0].toUpperCase() + tag.slice(1)}
                     </div>
                 ))}
-            <div className="text-xl">{item.title}</div>
         </Link>
     );
 };

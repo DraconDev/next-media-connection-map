@@ -1,4 +1,3 @@
-import Footer from "@/components/Footer/Footer";
 import Itemlist from "@/components/Itemlist/Itemlist";
 import GetItems from "@/db/supabase";
 
@@ -7,7 +6,7 @@ export default function Home() {
     return (
         <main>
             <Itemlist />
-            <Footer />
+            {/* <Footer /> */}
         </main>
     );
 }
