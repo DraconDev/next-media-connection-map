@@ -16,11 +16,11 @@ const SearchBar = (props: Props) => {
         error,
         data: items,
         refetch,
-    } = useQuery(
-        ["items"],
-        () => SearchByTitle(value),
-        { enabled: value !== "" } // Optimize fetching
-    );
+    } = useQuery(["items"], () => SearchByTitle(value), {
+        enabled: value !== "",
+    });
+
+    queryClient.
 
     return (
         <div className="flex w-full grow hover:outline-1 outline-accent">
@@ -33,9 +33,9 @@ const SearchBar = (props: Props) => {
             <Button
                 override="bg-secondary rounded-lg rounded-l-none"
                 action={() => {
-                    // Trigger refetch
+
                     refetch();
-                    setValue(""); // Clear input field
+                    setValue("");
                 }}
             >
                 <GrSearch className={"w-9 h-9"} />

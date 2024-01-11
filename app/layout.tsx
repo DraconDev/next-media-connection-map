@@ -30,7 +30,6 @@ export default function RootLayout({
                     <div className="w-full h-full pt-[90px] text-lg p-1">
                         {children}
                     </div>
-                    <ReactQueryDevtools initialIsOpen />
                 </QueryProvider>
             </body>
         </html>
