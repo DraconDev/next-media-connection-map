@@ -1,7 +1,7 @@
 "use client";
 
 import { SearchByTitle } from "@/db/supabase";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { GrSearch } from "react-icons/gr";
 
 import { useQuery, useQueryClient } from "@tanstack/react-query";
@@ -22,6 +22,19 @@ const SearchBar = (props: Props) => {
         refetch();
         setValue("");
     };
+
+    const handleKeyPress = async (e: KeyboardEvent) => {
+        if (e.key === "Enter") {
+            await handleSearch();
+        }
+    };
+
+    useEffect(() => {
+        document.addEventListener("keydown", handleKeyPress);
+        return () => {
+            document.removeEventListener("keydown", handleKeyPress);
+        };
+    }, []);
 
     return (
         <div className="flex w-full grow hover:outline-1 outline-accent">
