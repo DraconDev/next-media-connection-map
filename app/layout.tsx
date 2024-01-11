@@ -22,17 +22,17 @@ export default function RootLayout({
             lang="en"
             className="relative"
         >
-            <QueryProvider>
-                <body
-                    className={`min-h-screen ${kanit.className}  text-font bg-secondary text-xl`}
-                >
+            <body
+                className={`min-h-screen ${kanit.className}  text-font bg-secondary text-xl`}
+            >
+                <QueryProvider>
                     <Navbar />
                     <div className="w-full h-full pt-[140px] text-lg p-1">
                         {children}
                     </div>
-                </body>
-                <ReactQueryDevtools initialIsOpen />
-            </QueryProvider>
+                    <ReactQueryDevtools initialIsOpen />
+                </QueryProvider>
+            </body>
         </html>
     );
 }
