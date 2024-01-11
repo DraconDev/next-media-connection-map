@@ -46,3 +46,10 @@ export async function AddItemToDB(
         throw error; // Re-throw the error for handling elsewhere
     }
 }
+
+// search db for item based on title
+export async function SearchByTitle (
+
+) {
+
+}

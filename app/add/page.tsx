@@ -53,10 +53,11 @@ const AddItem = (props: Props) => {
                         {errors.image_url && <span>Image URL is required</span>}
                     </p>
                 </div>
-                <div className="flex flex-col">
+                <div className="flex flex-col gap-2">
                     <p className="description p-1 text-2xl">Tag+</p>
                     <input
                         type="text"
+                        className="bg-primary p-2 rounded-md"
                         value={tag}
                         onChange={(e) => {
                             setTag(e.target.value);
@@ -64,13 +65,14 @@ const AddItem = (props: Props) => {
                     />
                     <Button
                         action={() => {
-                            if tag.length() > 3 {
-
+                            if (tag.length > 3) {
                                 setTags([...tags, tag]);
                                 setTag("");
                             }
                         }}
-                    />
+                    >
+                        Add tag
+                    </Button>
                 </div>
                 <div className="flex flex-col">
                     <p className="description p-1 text-2xl">Description</p>
