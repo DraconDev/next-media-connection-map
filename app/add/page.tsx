@@ -1,6 +1,7 @@
 "use client";
 import Button from "@/components/UI/Button";
 import { AddItemToDB } from "@/db/supabase";
+import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 type FormData = {
     title: string;
@@ -17,9 +18,11 @@ const AddItem = (props: Props) => {
         formState: { errors },
     } = useForm<FormData>();
 
+    const [tags, setTags] = useState<string[]>([]);
+    const [tag, setTag] = useState("");
     const onSubmit: SubmitHandler<FormData> = (data) => {
         console.log(data);
-        AddItemToDB(data.title, data.description, data.image_url);
+        AddItemToDB(data.title, data.description, data.image_url, tags);
     };
     return (
         <div className=" p-2 bg-red flex flex-col gap-3 justify-center items-center h-[80vh] w-full">
@@ -38,18 +41,7 @@ const AddItem = (props: Props) => {
                         {errors.title && <span>Title is required</span>}
                     </p>
                 </div>
-                <div className="flex flex-col">
-                    <p className="description p-1 text-2xl">Description</p>
-                    <input
-                        className="bg-primary p-2 rounded-md"
-                        {...register("description", { required: true })}
-                    />
-                    <p className="text-accent text-center">
-                        {errors.description && (
-                            <span>Description is required</span>
-                        )}
-                    </p>
-                </div>
+
                 <div className="flex flex-col">
                     <p className="image_url p-1 text-2xl">Image url</p>
                     <input
@@ -59,6 +51,37 @@ const AddItem = (props: Props) => {
                     <p className="text-accent text-center">
                         {" "}
                         {errors.image_url && <span>Image URL is required</span>}
+                    </p>
+                </div>
+                <div className="flex flex-col">
+                    <p className="description p-1 text-2xl">Tag+</p>
+                    <input
+                        type="text"
+                        value={tag}
+                        onChange={(e) => {
+                            setTag(e.target.value);
+                        }}
+                    />
+                    <Button
+                        action={() => {
+                            if tag.length() > 3 {
+
+                                setTags([...tags, tag]);
+                                setTag("");
+                            }
+                        }}
+                    />
+                </div>
+                <div className="flex flex-col">
+                    <p className="description p-1 text-2xl">Description</p>
+                    <textarea
+                        className="bg-primary p-2 rounded-md min-h-[200px]"
+                        {...register("description", { required: true })}
+                    />
+                    <p className="text-accent text-center">
+                        {errors.description && (
+                            <span>Description is required</span>
+                        )}
                     </p>
                 </div>
                 <Button

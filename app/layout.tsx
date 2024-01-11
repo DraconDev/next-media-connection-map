@@ -27,7 +27,7 @@ export default function RootLayout({
             >
                 <QueryProvider>
                     <Navbar />
-                    <div className="w-full h-full pt-[140px] text-lg p-1">
+                    <div className="w-full h-full pt-[90px] text-lg p-1">
                         {children}
                     </div>
                     <ReactQueryDevtools initialIsOpen />

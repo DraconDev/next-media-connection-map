@@ -5,7 +5,7 @@ import Link from "next/link";
 const Item = (item: ItemType) => {
     return (
         <Link
-            className="flex flex-col gap-1  w-fit"
+            className="flex flex-col gap-1  w-fit h-fit"
             href={`/item/${item.title.replace(" ", "-")}`}
         >
             <Image
