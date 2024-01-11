@@ -23,9 +23,9 @@ const SearchBar = (props: Props) => {
         setValue("");
     };
 
-    const handleKeyPress = async (e: KeyboardEvent) => {
+    const handleKeyPress = (e: KeyboardEvent) => {
         if (e.key === "Enter") {
-            await handleSearch();
+            handleSearch();
         }
     };
 
