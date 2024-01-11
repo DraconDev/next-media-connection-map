@@ -1,6 +1,5 @@
 import Navbar from "@/components/Navbar/Navbar";
 import QueryProvider from "@/components/ReactQuery/QueryProvider";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import type { Metadata } from "next";
 import { Kanit } from "next/font/google";
 import "./globals.css";
@@ -23,7 +22,7 @@ export default function RootLayout({
             className="relative"
         >
             <body
-                className={`min-h-screen ${kanit.className}  text-font bg-secondary text-xl`}
+                className={`min-h-screen ${kanit.className}  text-font bg-secondary text-xl relative`}
             >
                 <QueryProvider>
                     <Navbar />

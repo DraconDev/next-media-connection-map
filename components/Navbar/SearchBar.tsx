@@ -1,29 +1,26 @@
 "use client";
 
+import { SearchByTitle } from "@/db/supabase";
 import { useState } from "react";
 import { GrSearch } from "react-icons/gr";
-import Button from "../UI/Button";
-import GetItems, { SearchByTitle } from "@/db/supabase";
-import { useQuery, useQueryClient } from "react-query";
-import { ItemType } from "@/type/item";
 
+import { useQuery, useQueryClient } from "@tanstack/react-query";
+import Button from "../UI/Button";
 type Props = {};
 
 const SearchBar = (props: Props) => {
     const [value, setValue] = useState("");
 
     const queryClient = useQueryClient();
-
-    const updateItemsQueryData = (newData: ItemType[]) => {
-        queryClient.setQueryData(["items"], newData);
-    };
+    const { data, refetch } = useQuery({
+        queryKey: ["items"],
+        queryFn: () => SearchByTitle(value),
+        staleTime: 1000 * 60 * 5,
+    });
 
     const handleSearch = async () => {
-        // Fetch new data using SearchByTitle
-        const newData = await SearchByTitle(value);
+        refetch();
         setValue("");
-        // Update the items query data in the cache
-        updateItemsQueryData(newData as ItemType[]);
     };
 
     return (
