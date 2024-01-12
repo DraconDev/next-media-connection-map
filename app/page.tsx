@@ -4,7 +4,7 @@ import GetItems from "@/db/supabase";
 export default function Home() {
     GetItems();
     return (
-        <main>
+        <main className="flex flex-col items-center justify-center ">
             <Itemlist />
             {/* <Footer /> */}
         </main>
