@@ -18,6 +18,8 @@ const config: Config = {
                 secondary: "hsl(0,0%, 20%)",
                 accent: "hsl(60, 80%, 50%)",
                 font: "hsl(0, 0%, 100%)",
+                tertiary: "hsl(120, 35%, 50%)",
+                quaternary: "hsl(0,35%, 50%)",
             },
         },
     },

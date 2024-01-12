@@ -2,6 +2,7 @@ import { ItemType } from "@/type/item";
 import Image from "next/image";
 import Link from "next/link";
 import ItemTag from "./ItemTag";
+import Rating from "./Rating";
 
 const Item = (item: ItemType) => {
     return (
@@ -17,6 +18,7 @@ const Item = (item: ItemType) => {
                 ></Image>
                 <div>{item.title}</div>
             </Link>
+            <Rating {...item} />
             {item.tags &&
                 item.tags.map((tag) => (
                     <ItemTag
