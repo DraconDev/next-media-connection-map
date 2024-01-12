@@ -61,11 +61,12 @@ export async function SearchByTitle(text: string) {
 
 // search db by tag
 export async function SearchByTag(text: string) {
+    console.log(text);
     const supabase = await GetSupabase();
     const { data } = await supabase
         .from("items")
         .select("*")
-        .filter("tags", "ilike", `%${text}%`);
+        .contains("tags", [text]);
 
     console.log(data);
     return data;
