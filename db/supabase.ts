@@ -1,5 +1,4 @@
 import { createClient } from "@supabase/supabase-js";
-import { text } from "stream/consumers";
 
 // connect supabase
 async function GetSupabase() {
@@ -61,7 +60,7 @@ export async function SearchByTitle(text: string) {
 }
 
 // search db by tag
-export async function SearchByTag(tag: string) {
+export async function SearchByTag(text: string) {
     const supabase = await GetSupabase();
     const { data } = await supabase
         .from("items")
