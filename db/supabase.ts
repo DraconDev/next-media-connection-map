@@ -59,3 +59,15 @@ export async function SearchByTitle(text: string) {
     console.log(data);
     return data;
 }
+
+// search db by tag
+export async function SearchByTag(tag: string) {
+    const supabase = await GetSupabase();
+    const { data } = await supabase
+        .from("items")
+        .select("*")
+        .filter("tags", "ilike", `%${text}%`);
+
+    console.log(data);
+    return data;
+}
