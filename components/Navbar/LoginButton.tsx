@@ -38,7 +38,6 @@ const LoginButton = (props: Props) => {
         </Button>
     ) : (
         <Button
-            link="/auth"
             action={() => supabase.auth.signOut()}
             override="p-0 flex justify-center items-center"
         >
