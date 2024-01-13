@@ -2,7 +2,6 @@
 import { addDownvote, addUpvote } from "@/db/supabase";
 import { ItemType } from "@/type/item";
 import { FaRegThumbsDown, FaRegThumbsUp } from "react-icons/fa";
-import { useMutation } from "react-query";
 import Button from "../UI/Button";
 
 const Rating = (item: ItemType) => {
@@ -28,9 +27,7 @@ const Rating = (item: ItemType) => {
                     "rounded-l-none bg-gradient-to-r from-accent to-quaternary border-l-0 via-quaternary" +
                     ShareButtonStyle
                 }
-                action={() =>
-                    useMutation((item: ItemType) => addDownvote(item))
-                }
+                action={() => addDownvote(item)}
             >
                 <div className="flex justify-end gap-2 items-center  px-2 ">
                     <FaRegThumbsDown className="w-7 h-7" />
