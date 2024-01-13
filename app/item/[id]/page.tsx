@@ -1,7 +1,7 @@
 "use client";
 
 import { GetItemById } from "@/db/supabase";
-import { useQuery } from "react-query";
+import { useQuery } from "@tanstack/react-query";
 
 const Selection = ({ params }: { params: { id: string } }) => {
     const { data, error } = useQuery({
