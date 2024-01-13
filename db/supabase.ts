@@ -74,10 +74,14 @@ export async function addUpvote(item: ItemType): Promise<void> {
     const supabase = await GetSupabase();
 
     try {
-        await supabase.rpc("increment_up_votes", { id: item?.id });
+        const { data, error } = await supabase.rpc("increment_up_votes", {
+            item_id: item?.id,
+        });
+        if (error) {
+            throw error;
+        }
     } catch (error) {
         console.error("Error adding upvote to item:", error);
-        throw error; // Re-throw the error for handling elsewhere
     }
 }
 // add downvote to item
