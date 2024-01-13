@@ -1,3 +1,4 @@
+import { ItemType } from "@/type/item";
 import { createClient } from "@supabase/supabase-js";
 
 // connect supabase
@@ -19,7 +20,7 @@ export default async function GetItems() {
 
     try {
         const { data } = await supabase.from("items").select();
-        console.log(data);
+
         return data;
     } catch (error) {
         console.error("Error fetching items:", error);
@@ -35,7 +36,6 @@ export async function AddItemToDB(
     tags?: string[]
 ) {
     const supabase = await GetSupabase();
-    console.log(title);
 
     try {
         const { data, error } = await supabase
@@ -55,19 +55,43 @@ export async function SearchByTitle(text: string) {
         .select("*")
         .filter("title", "ilike", `%${text}%`);
 
-    console.log(data);
     return data;
 }
 
 // search db by tag
 export async function SearchByTag(text: string) {
-    console.log(text);
     const supabase = await GetSupabase();
     const { data } = await supabase
         .from("items")
         .select("*")
         .contains("tags", [text]);
 
-    console.log(data);
     return data;
+}
+
+// add upvote to item
+export async function addUpvote(item: ItemType): Promise<void> {
+    const supabase = await GetSupabase();
+
+    try {
+        await supabase.rpc("increment_up_votes", { id: item?.id });
+    } catch (error) {
+        console.error("Error adding upvote to item:", error);
+        throw error; // Re-throw the error for handling elsewhere
+    }
+}
+// add downvote to item
+export async function addDownvote(item: ItemType): Promise<void> {
+    const supabase = await GetSupabase();
+    try {
+        await supabase
+            .from("items")
+            .update({
+                down_votes: item?.down_votes ? item?.down_votes + 1 : 1,
+            })
+            .eq("id", item.id);
+    } catch (error) {
+        console.error("Error adding downvote to item:", error);
+        throw error; // Re-throw the error for handling elsewhere
+    }
 }

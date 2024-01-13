@@ -1,6 +1,6 @@
 // item type
 export type ItemType = {
-    id?: string;
+    id: number;
     title: string;
     description?: string;
     up_votes?: number;

@@ -21,7 +21,6 @@ const AddItem = (props: Props) => {
     const [tags, setTags] = useState<string[]>([]);
     const [tag, setTag] = useState("");
     const onSubmit: SubmitHandler<FormData> = (data) => {
-        console.log(data);
         AddItemToDB(data.title, data.description, data.image_url, tags);
     };
     return (
