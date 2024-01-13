@@ -7,7 +7,7 @@ import Rating from "./Rating";
 const Item = (item: ItemType) => {
     return (
         <div className="flex flex-col gap-1   h-fit">
-            <Link href={`/item/${item.title.replace(" ", "-")}`}>
+            <Link href={`/item/${item.id}`}>
                 <Image
                     src={item.image_url ?? "/public/placeholder.jpg"}
                     alt={item.title}

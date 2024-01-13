@@ -99,3 +99,22 @@ export async function addDownvote(item: ItemType): Promise<void> {
         console.error("Error adding downvote to item:", e);
     }
 }
+
+// get item by id
+export async function GetItemById(id: number) {
+    const supabase = await GetSupabase();
+
+    try {
+        const { data, error } = await supabase
+            .from("items")
+            .select("*")
+            .eq("id", id);
+
+        if (error) {
+            throw error;
+        }
+    } catch (error) {
+        console.error("Error fetching item:", error);
+        throw error; // Re-throw the error for handling elsewhere
+    }
+}
