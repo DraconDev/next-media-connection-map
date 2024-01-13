@@ -18,7 +18,7 @@ const Rating = (item: ItemType) => {
                     </div>
                 </Button>
                 <Button
-                    override={"rounded-l-none   " + ShareButtonStyle}
+                    override={"rounded-l-none " + ShareButtonStyle}
                     action={() => addDownvote(item)}
                 >
                     <div className="flex gap-2 items-center  justify-center px-2 ">
@@ -27,32 +27,14 @@ const Rating = (item: ItemType) => {
                     </div>
                 </Button>
             </div>
+
             <div
-                className={`rounded-lg w-full h-2 bg-white px-1 bg-gradient-to-r from-tertiary  to-quaternary from-0% to-100%  ${
-                    item.up_votes / item.down_votes > 1
-                        ? `via-tertiary ${
-                              "via-" +
-                              (
-                                  (item.up_votes /
-                                      (item.down_votes + item.up_votes)) *
-                                  6.66
-                              )
-                                  .toFixed(0)
-                                  .toString()
-                                  .concat("0%")
-                          }`
-                        : `via-quaternary ${
-                              "via-" +
-                              (
-                                  (item.down_votes /
-                                      (item.down_votes + item.up_votes)) *
-                                  15
-                              )
-                                  .toFixed(0)
-                                  .toString()
-                                  .concat("0%")
-                          }`
-                }`}
+                className={`rounded-lg w-full h-2 px-1`}
+                style={{
+                    background: `linear-gradient(to right, #0f0 ${Math.round(
+                        (item.up_votes / (item.down_votes + item.up_votes)) * 50
+                    )}%, #f00 100%)`,
+                }}
             ></div>
         </div>
     );
