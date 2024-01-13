@@ -16,7 +16,11 @@ const Item = (item: ItemType) => {
                     height={700}
                     loader={() => item.image_url ?? "/public/placeholder.jpg"}
                 ></Image>
-                <div>{item.title}</div>
+                <div className="text-xl">
+                    {item.title.length > 30
+                        ? item.title.slice(0, 30) + "..."
+                        : item.title}
+                </div>
             </Link>
             <Rating {...item} />
             {item.tags &&
