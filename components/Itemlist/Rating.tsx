@@ -10,7 +10,7 @@ const Rating = (item: ItemType) => {
 
     return (
         <div className="">
-            <div className="text-sm flex justify-center p-1 ">
+            <div className="text-sm flex justify-center pb-1 ">
                 <Button override={"rounded-r-none " + ShareButtonStyle}>
                     <div className="flex  px-2 gap-2 items-center justify-center">
                         <FaRegThumbsUp className="w-7 h-7" />

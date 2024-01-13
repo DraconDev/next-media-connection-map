@@ -16,12 +16,12 @@ const Item = (item: ItemType) => {
                     height={700}
                     loader={() => item.image_url ?? "/public/placeholder.jpg"}
                 ></Image>
-                <div className="text-xl">
-                    {item.title.length > 30
-                        ? item.title.slice(0, 30) + "..."
-                        : item.title}
-                </div>
             </Link>
+            <div className="text-xl flex items-center">
+                {item.title.length > 30
+                    ? item.title.slice(0, 30) + "..."
+                    : item.title}
+            </div>
             <Rating {...item} />
             {item.tags &&
                 item.tags.map((tag) => (
