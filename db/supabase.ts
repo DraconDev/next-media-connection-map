@@ -108,11 +108,13 @@ export async function GetItemById(id: number) {
         const { data, error } = await supabase
             .from("items")
             .select("*")
-            .eq("id", id);
+            .eq("id", id)
+            .single();
 
         if (error) {
             throw error;
         }
+        return data;
     } catch (error) {
         console.error("Error fetching item:", error);
         throw error; // Re-throw the error for handling elsewhere

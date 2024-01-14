@@ -28,14 +28,19 @@ const Rating = (item: ItemType) => {
                 </Button>
             </div>
 
-            <div
-                className={`rounded-lg w-full h-2 px-1`}
-                style={{
-                    background: `linear-gradient(to right, #0f0 ${Math.round(
-                        (item.up_votes / (item.down_votes + item.up_votes)) * 50
-                    )}%, #f00 100%)`,
-                }}
-            ></div>
+            <div className="w-full flex ">
+                <div
+                    className={`h-2 bg-[#0f0] shrink-0  rounded-lg rounded-r-none`}
+                    style={{
+                        width: `${(
+                            (item.up_votes /
+                                (item.down_votes + item.up_votes)) *
+                            100
+                        ).toFixed(0)}%`,
+                    }}
+                ></div>
+                <div className="h-2 w-full bg-[#f00] rounded-lg rounded-l-none"></div>
+            </div>
         </div>
     );
 };
