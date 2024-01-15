@@ -20,7 +20,7 @@ const ItemTag = ({ tag }: Props) => {
         <button onClick={handleSearch}>
             <div
                 key={tag}
-                className="text-primary bg-accent px-1 w-fit rounded-lg text-sm"
+                className="text-accent bg-primary px-1 w-fit rounded-lg text-sm border-2 border-accent"
             >
                 {tag[0].toUpperCase() + tag.slice(1)}
             </div>

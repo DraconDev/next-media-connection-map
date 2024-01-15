@@ -21,7 +21,7 @@ const Selection = ({ params }: { params: { id: string } }) => {
     return (
         <div className="flex flex-col gap-2 md:p-2">
             <div className="w-full  flex">
-                <div className=" w-[400px] md:w-[400px]">
+                <div className="p-1 w-1/2 md:w-[400px]">
                     <Image
                         src={item.image_url ?? "/public/placeholder.jpg"}
                         alt={item.title}
@@ -32,7 +32,7 @@ const Selection = ({ params }: { params: { id: string } }) => {
                             item.image_url ?? "/public/placeholder.jpg"
                         }
                     ></Image>
-                    <div className="text-xl flex items-center">
+                    <div className="text-xl flex items-center w-full">
                         {item.title.length > 30
                             ? item.title.slice(0, 30) + "..."
                             : item.title}
@@ -50,7 +50,9 @@ const Selection = ({ params }: { params: { id: string } }) => {
                                 key={tag}
                             />
                         ))}
-                    <div className="div">{item?.description}</div>
+                    <div className="div text-sm lg:text-lg ">
+                        {item?.description}
+                    </div>
                 </div>
             </div>
             <div className="bg-red-400">other card lists</div>

@@ -23,13 +23,15 @@ const Item = (item: ItemType) => {
                     : item.title}
             </div>
             <Rating {...item} />
-            {item.tags &&
-                item.tags.map((tag) => (
-                    <ItemTag
-                        tag={tag}
-                        key={tag}
-                    />
-                ))}
+            <div className="flex gap-1">
+                {item.tags &&
+                    item.tags.map((tag) => (
+                        <ItemTag
+                            tag={tag}
+                            key={tag}
+                        />
+                    ))}
+            </div>
         </div>
     );
 };
