@@ -1,5 +1,5 @@
 "use client";
-import { addDownvote } from "@/db/supabase";
+import { addDownvote, addUpvote } from "@/db/supabase";
 import { ItemType } from "@/type/item";
 import { FaRegThumbsDown, FaRegThumbsUp } from "react-icons/fa";
 import Button from "../UI/Button";
@@ -11,7 +11,10 @@ const Rating = (item: ItemType) => {
     return (
         <div className="">
             <div className="text-sm flex justify-center pb-1 ">
-                <Button override={"rounded-r-none " + ShareButtonStyle}>
+                <Button
+                    override={"rounded-r-none " + ShareButtonStyle}
+                    action={() => addUpvote(item)}
+                >
                     <div className="flex  px-2 gap-2 items-center justify-center">
                         <FaRegThumbsUp className="w-7 h-7" />
                         {item?.up_votes?.toString() ?? "0"}
