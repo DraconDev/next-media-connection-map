@@ -21,11 +21,11 @@ const Selection = ({ params }: { params: { id: string } }) => {
     return (
         <div className="flex flex-col gap-2 md:p-2">
             <div className="w-full  flex">
-                <div className="p-1 w-1/2 md:w-[400px]">
+                <div className="p-1 w-1/2 md:w-[500px] ">
                     <Image
                         src={item.image_url ?? "/public/placeholder.jpg"}
                         alt={item.title}
-                        className="rounded-lg object-cover md:w-[400px] md:h-[500px] w-[160px] h-[200px] grow"
+                        className="rounded-lg object-cover w-[160px] h-[200px] md:w-[400px] md:h-[500px] "
                         width={1000}
                         height={1000}
                         loader={() =>
@@ -37,9 +37,11 @@ const Selection = ({ params }: { params: { id: string } }) => {
                             ? item.title.slice(0, 30) + "..."
                             : item.title}
                     </div>
-                    <Rating {...item} />
+                    <div className="">
+                        <Rating {...item} />
+                    </div>
                 </div>
-                <div className="px-2">
+                <div className="w-full px-2">
                     <div className="text-3xl border-b-2 border-primary">
                         {item?.title}
                     </div>
