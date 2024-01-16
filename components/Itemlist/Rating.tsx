@@ -1,7 +1,7 @@
 "use client";
 import { addDownvote, addUpvote } from "@/db/supabase";
 import { ItemType } from "@/type/item";
-import { FaRegThumbsDown, FaRegThumbsUp } from "react-icons/fa";
+import { BiSolidDownvote, BiSolidUpvote } from "react-icons/bi";
 import Button from "../UI/Button";
 
 const Rating = (item: ItemType) => {
@@ -16,8 +16,9 @@ const Rating = (item: ItemType) => {
                     action={() => addUpvote(item)}
                 >
                     <div className="flex  px-2 gap-2 items-center justify-center">
-                        <FaRegThumbsUp className="w-7 h-7" />
-                        {item?.up_votes?.toString() ?? "0"}
+                        {/* <FaRegThumbsUp className="w-7 h-7" /> */}
+                        <BiSolidUpvote className="w-8 h-8" />
+                        {/* {item?.up_votes?.toString() ?? "0"} */}
                     </div>
                 </Button>
                 <Button
@@ -25,8 +26,9 @@ const Rating = (item: ItemType) => {
                     action={() => addDownvote(item)}
                 >
                     <div className="flex gap-2 items-center  justify-center px-2 ">
-                        <FaRegThumbsDown className="w-7 h-7" />
-                        {item?.down_votes?.toString() ?? "0"}
+                        <BiSolidDownvote className="w-8 h-8" />
+
+                        {/* {item?.down_votes?.toString() ?? "0"} */}
                     </div>
                 </Button>
             </div>
