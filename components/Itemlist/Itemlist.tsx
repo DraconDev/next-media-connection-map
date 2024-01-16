@@ -10,7 +10,7 @@ const Itemlist = (props: Props) => {
     const { data } = useQuery({ queryKey: ["items"], queryFn: GetItems });
 
     return (
-        <div className=" p-1 flex gap-2 flex-wrap ">
+        <div className=" p-1 flex gap-2 flex-wrap justify-center">
             {data &&
                 data.map((item: ItemType) => (
                     <Item
