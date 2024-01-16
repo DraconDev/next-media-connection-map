@@ -53,13 +53,15 @@ const Selection = ({ params }: { params: { id: string } }) => {
                             <FaEdit className="w-7 h-7" />
                         </Button>
                     </div>
-                    {item.tags &&
-                        item.tags.map((tag) => (
-                            <ItemTag
-                                tag={tag}
-                                key={tag}
-                            />
-                        ))}
+                    <div className="gap-2 w-full flex py-2">
+                        {item.tags &&
+                            item.tags.map((tag) => (
+                                <ItemTag
+                                    tag={tag}
+                                    key={tag}
+                                />
+                            ))}
+                    </div>
                     <div className="div text-sm lg:text-lg ">
                         {item?.description}
                     </div>
