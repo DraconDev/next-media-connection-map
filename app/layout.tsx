@@ -22,11 +22,11 @@ export default function RootLayout({
             className="relative"
         >
             <body
-                className={`min-h-screen ${kanit.className}  text-font bg-secondary text-xl relative w-full flex justify-center`}
+                className={`min-h-screen ${kanit.className}  text-font bg-secondary text-xl relative w-full flex justify-center `}
             >
                 <QueryProvider>
                     <Navbar />
-                    <div className=" h-full pt-[120px] text-lg p-1 max-w-[1920px]   w-full">
+                    <div className=" h-full pt-[120px] text-lg p-1 max-w-[1280px]   w-full">
                         {children}
                     </div>
                 </QueryProvider>

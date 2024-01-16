@@ -11,7 +11,7 @@ const Item = (item: ItemType) => {
                 <Image
                     src={item.image_url ?? "/public/placeholder.jpg"}
                     alt={item.title}
-                    className="rounded-lg object-cover md:w-[250px] md:h-[300px] w-[160px] h-[200px] grow"
+                    className="rounded-lg object-cover md:w-[240px] md:h-[300px] w-[160px] h-[200px] grow"
                     width={700}
                     height={700}
                     loader={() => item.image_url ?? "/public/placeholder.jpg"}
