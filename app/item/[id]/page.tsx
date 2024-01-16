@@ -19,7 +19,7 @@ const Selection = ({ params }: { params: { id: string } }) => {
 
     console.log(data);
     return (
-        <div className="flex flex-col gap-2 md:p-2">
+        <div className="flex flex-col gap-2 ">
             <div className="w-full  flex">
                 <div className="p-1 w-1/2 md:w-[500px] ">
                     <Image
