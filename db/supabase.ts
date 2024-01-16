@@ -128,7 +128,7 @@ export async function UpdateItemTitleById(id: number, value: any) {
     try {
         const { data, error } = await supabase
             .from("items")
-            .update([{ title: "Jack" }])
+            .update([{ title: value }])
             .eq("id", id);
 
         if (error) {

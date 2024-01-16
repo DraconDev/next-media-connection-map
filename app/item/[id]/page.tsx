@@ -42,7 +42,7 @@ const Selection = ({ params }: { params: { id: string } }) => {
                     </div>
                 </div>
                 <div className="w-full px-2">
-                    <div className="text-3xl border-b-2 border-primary">
+                    <div className="text-3xl border-b-2 border-primary justify-between flex">
                         {item?.title}
                     </div>
                     {item.tags &&
