@@ -121,6 +121,26 @@ export async function GetItemById(id: number) {
     }
 }
 
+// get item by id
+export async function UpdateItemTitleById(id: number, value: any) {
+    const supabase = await GetSupabase();
+
+    try {
+        const { data, error } = await supabase
+            .from("items")
+            .update([{ title: "Jack" }])
+            .eq("id", id);
+
+        if (error) {
+            throw error;
+        }
+        return data;
+    } catch (error) {
+        console.error("Error fetching item:", error);
+        throw error; // Re-throw the error for handling elsewhere
+    }
+}
+
 // get most popular tags
 export async function GetTags() {
     const supabase = await GetSupabase();

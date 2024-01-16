@@ -1,18 +1,20 @@
 "use client";
-import { createClient } from "@supabase/supabase-js";
+import { UpdateItemTitleById } from "@/db/supabase";
 
 type Props = {};
 
 const page = async (props: Props) => {
-    const supabase = createClient(
-        process.env.NEXT_PUBLIC_SUPABASE_URL ?? "",
-        process.env.NEXT_PUBLIC_SUPABASE_KEY ?? ""
-    );
+    UpdateItemTitleById(4, "test");
+    // const supabase = createClient(
+    //     process.env.NEXT_PUBLIC_SUPABASE_URL ?? "",
+    //     process.env.NEXT_PUBLIC_SUPABASE_KEY ?? ""
+    // );
 
-    const { data, error } = await supabase.auth.signInWithOAuth({
-        provider: "github",
-    });
-    return <div>page {data && JSON.stringify(data)}</div>;
+    // const { data, error } = await supabase.auth.signInWithOAuth({
+    //     provider: "github",
+    // });
+    // return <div>page {data && JSON.stringify(data)}</div>
+    return <div>page</div>;
 };
 
 export default page;
