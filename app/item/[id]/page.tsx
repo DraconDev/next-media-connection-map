@@ -2,10 +2,12 @@
 
 import ItemTag from "@/components/Itemlist/ItemTag";
 import Rating from "@/components/Itemlist/Rating";
+import Button from "@/components/UI/Button";
 import { GetItemById } from "@/db/supabase";
 import { ItemType } from "@/type/item";
 import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
+import { FaEdit } from "react-icons/fa";
 
 const Selection = ({ params }: { params: { id: string } }) => {
     const { data, error } = useQuery({
@@ -42,8 +44,14 @@ const Selection = ({ params }: { params: { id: string } }) => {
                     </div>
                 </div>
                 <div className="w-full px-2">
-                    <div className="text-3xl border-b-2 border-primary justify-between flex">
+                    <div className="text-3xl border-b-2 border-primary justify-between flex items-center">
                         {item?.title}
+                        <Button
+                            link={`/item/edit/${params.id}`}
+                            override="p-0 bg-secondary text-accent hover:bg-secondary"
+                        >
+                            <FaEdit className="w-7 h-7" />
+                        </Button>
                     </div>
                     {item.tags &&
                         item.tags.map((tag) => (
