@@ -120,3 +120,38 @@ export async function GetItemById(id: number) {
         throw error; // Re-throw the error for handling elsewhere
     }
 }
+
+// get most popular tags
+export async function GetTags() {
+    const supabase = await GetSupabase();
+
+    try {
+        const { data, error } = await supabase
+            .from("items")
+            .select("tags")
+            .order("up_votes", { ascending: false });
+
+        console.log("response", data);
+        // make a set of unique tags
+        const tags: Set<string> = new Set();
+
+        if (data) {
+            for (const item of data) {
+                if (item.tags) {
+                    for (const tag of item.tags) {
+                        tags.add(tag);
+                    }
+                }
+            }
+        }
+
+        if (error) {
+            throw error;
+        }
+        console.log("tags", tags);
+        return tags;
+    } catch (error) {
+        console.error("Error fetching tags:", error);
+        throw error; // Re-throw the error for handling elsewhere
+    }
+}
