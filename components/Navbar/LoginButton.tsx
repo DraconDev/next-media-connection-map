@@ -43,8 +43,8 @@ const LoginButton = (props: Props) => {
         >
             <Image
                 src={user?.user_metadata?.avatar_url}
-                width={50}
-                height={50}
+                width={40}
+                height={40}
                 alt={"Avatar"}
                 loader={() => user?.user_metadata?.avatar_url}
                 className="rounded-full"
