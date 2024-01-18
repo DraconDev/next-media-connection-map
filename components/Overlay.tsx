@@ -1,5 +1,7 @@
 "use client";
 import { useEffect, useRef } from "react";
+import Itemlist from "./Itemlist/Itemlist";
+import SearchBar from "./Navbar/SearchBar";
 import Button from "./UI/Button";
 
 type Props = {
@@ -28,21 +30,22 @@ const Overlay = (props: Props) => {
     return (
         <div className="fixed top-0 left-0 w-full h-full bg-black/50 z-10 flex justify-center ">
             <div
-                className=" max-w-[1280px] w-full bg-secondary border-2 border-black"
+                className=" max-w-[1280px] w-full bg-primary border-2 border-black gap-3 flex flex-col p-1"
                 ref={overlayRef}
             >
-                <div className="relative h-12 p-1 text-xl w-full flex justify-between items-center ">
+                <div className="relative h-12 p-2 text-xl w-full flex justify-between items-center ">
                     <div className="">Add recommendation</div>
                     <Button
                         action={props.action}
-                        override="bg-secondary"
+                        override="  text-2xl"
                     >
                         X
                     </Button>
                 </div>
-                {/* <div className="w-full h-full bg-black z-50">
-                <SearchBar />
-            </div> */}
+                <div className="h-12">
+                    <SearchBar />
+                </div>
+                <Itemlist />
             </div>
         </div>
     );
