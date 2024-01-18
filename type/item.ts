@@ -7,5 +7,5 @@ export type ItemType = {
     down_votes: number;
     image_url?: string;
     tags?: string[];
-    connections?: string[];
+    connections?: number[];
 };

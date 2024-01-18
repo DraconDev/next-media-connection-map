@@ -1,20 +1,18 @@
-import GetItems from "@/db/supabase";
-import { ItemType } from "@/type/item";
-import { useQuery } from "@tanstack/react-query";
 import { GoPlus } from "react-icons/go";
-import Item from "./Item";
 
-type Props = {};
+type Props = {
+    connections: number[];
+};
 
-const ConnectedItems = () => {
-    const { data } = useQuery({ queryKey: ["connections"], queryFn: GetItems });
+const ConnectedItems = ({ connections }: Props) => {
+    console.log(connections);
     return (
         <div className="bg-red-400">
             other card lists
             <div className="">
                 link card
                 <GoPlus />
-                <div className=" p-1 flex gap-2 flex-wrap justify-center">
+                {/* <div className=" p-1 flex gap-2 flex-wrap justify-center">
                     {data &&
                         data.map((item: ItemType) => (
                             <Item
@@ -22,7 +20,7 @@ const ConnectedItems = () => {
                                 {...item}
                             />
                         ))}
-                </div>
+                </div> */}
             </div>
         </div>
     );
