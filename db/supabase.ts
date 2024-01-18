@@ -35,7 +35,7 @@ export async function GetConnections(connections: number[]) {
         const { data } = await supabase
             .from("items")
             .select()
-            .eq("id", connections);
+            .in("id", connections);
 
         return data;
     } catch (error) {
