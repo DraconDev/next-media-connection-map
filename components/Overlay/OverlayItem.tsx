@@ -1,5 +1,8 @@
+"use client";
+import { AddConnectionById } from "@/db/supabase";
 import { ItemType } from "@/type/item";
 import Image from "next/image";
+import { useEffect } from "react";
 import { MdOutlineAddLink } from "react-icons/md";
 
 type Props = {
@@ -8,6 +11,10 @@ type Props = {
 };
 
 const OverlayItem = ({ item, connection_id }: Props) => {
+    useEffect(() => {
+        AddConnectionById(5, 7);
+    }, []);
+
     return (
         <button className="hover:outline outline-4 outline-accent rounded-lg bg-black">
             <div className="relative">
