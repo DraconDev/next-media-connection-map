@@ -10,12 +10,12 @@ const Rating = (item: ItemType) => {
 
     return (
         <div className="">
-            <div className="text-sm flex justify-center pb-1 ">
+            <div className="text-sm flex justify-center border-2 rounded-xl border-black mb-1">
                 <Button
                     override={"rounded-r-none " + ShareButtonStyle}
                     action={() => addUpvote(item)}
                 >
-                    <div className="flex  px-2 gap-2 items-center justify-center">
+                    <div className="flex  px-2 gap-2 items-center justify-center ">
                         {/* <FaRegThumbsUp className="w-7 h-7" /> */}
                         <BiSolidUpvote className="w-8 h-8" />
                         {/* {item?.up_votes?.toString() ?? "0"} */}
@@ -25,7 +25,7 @@ const Rating = (item: ItemType) => {
                     override={"rounded-l-none " + ShareButtonStyle}
                     action={() => addDownvote(item)}
                 >
-                    <div className="flex gap-2 items-center  justify-center px-2 ">
+                    <div className="flex gap-2 items-center  justify-center px-2  ">
                         <BiSolidDownvote className="w-8 h-8" />
 
                         {/* {item?.down_votes?.toString() ?? "0"} */}
