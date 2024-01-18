@@ -26,7 +26,7 @@ export default function RootLayout({
             >
                 <QueryProvider>
                     <Navbar />
-                    <div className=" h-full pt-[120px] text-lg p-1 max-w-[1280px]   w-full">
+                    <div className=" h-full pt-[124px] text-lg p-1 max-w-[1280px]   w-full">
                         {children}
                     </div>
                 </QueryProvider>
