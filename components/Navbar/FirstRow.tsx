@@ -2,7 +2,7 @@
 
 import GetItems from "@/db/supabase";
 import { useQuery } from "@tanstack/react-query";
-import { FaPlus } from "react-icons/fa";
+import { CiSquarePlus } from "react-icons/ci";
 import { SiChainlink } from "react-icons/si";
 import Button from "../UI/Button";
 import LoginButton from "./LoginButton";
@@ -25,7 +25,7 @@ const FirstRow = (props: Props) => {
             </Button>
             <SearchBar />
             <Button link="/add">
-                <FaPlus className="w-8 h-8" />
+                <CiSquarePlus className="w-10 h-10" />
             </Button>
             <LoginButton />
         </div>

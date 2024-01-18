@@ -89,9 +89,11 @@ export async function addDownvote(item: ItemType): Promise<void> {
     const supabase = await GetSupabase();
 
     try {
+        console.log("down vote", item?.id);
         const { data, error } = await supabase.rpc("increment_down_votes", {
             item_id: item?.id,
         });
+        console.log("down vote", data);
         if (error) {
             throw error;
         }

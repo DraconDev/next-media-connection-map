@@ -1,6 +1,7 @@
 "use client";
 
 import ItemTag from "@/components/Itemlist/ItemTag";
+import OtherItems from "@/components/Itemlist/OtherItems";
 import Rating from "@/components/Itemlist/Rating";
 import Button from "@/components/UI/Button";
 import { GetItemById } from "@/db/supabase";
@@ -66,8 +67,8 @@ const Selection = ({ params }: { params: { id: string } }) => {
                         {item?.description}
                     </div>
                 </div>
+                <OtherItems />
             </div>
-            <div className="bg-red-400">other card lists</div>
         </div>
     );
 };
