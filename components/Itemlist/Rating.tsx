@@ -33,7 +33,7 @@ const Rating = (item: ItemType) => {
                 </Button>
             </div>
 
-            <div className="w-full flex ">
+            <div className="w-full flex px-1">
                 <div
                     className={`h-2 bg-[#0f0] shrink-0  rounded-lg rounded-r-none`}
                     style={{
