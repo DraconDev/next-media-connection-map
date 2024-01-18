@@ -139,6 +139,25 @@ export async function GetItemById(id: number) {
     }
 }
 
+// add connection to item by id to id
+export async function AddConnectionById(id: number, connectionId: number) {
+    const supabase = await GetSupabase();
+
+    try {
+        const { data, error } = await supabase
+            .from("items")
+            .update([{ connections: connectionId }])
+            .eq("id", id);
+
+        if (error) {
+            throw error;
+        }
+    } catch (error) {
+        console.error("Error fetching item:", error);
+        throw error; // Re-throw the error for handling elsewhere
+    }
+}
+
 // get item by id
 export async function UpdateItemTitleById(id: number, value: any) {
     const supabase = await GetSupabase();

@@ -2,7 +2,12 @@ import { ItemType } from "@/type/item";
 import Image from "next/image";
 import { MdOutlineAddLink } from "react-icons/md";
 
-const OverlayItem = (item: ItemType) => {
+type Props = {
+    item: ItemType;
+    connection_id?: number;
+};
+
+const OverlayItem = ({ item, connection_id }: Props) => {
     return (
         <button className="hover:outline outline-4 outline-accent rounded-lg bg-black">
             <div className="relative">

@@ -20,7 +20,8 @@ const OverlayItems = (props: Props) => {
                 data.map((item: ItemType) => (
                     <OverlayItem
                         key={item.id}
-                        {...item}
+                        item={item}
+                        connection_id={props.id}
                     />
                 ))}
         </div>
