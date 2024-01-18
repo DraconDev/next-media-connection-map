@@ -6,7 +6,7 @@ import Item from "./Item";
 
 type Props = {};
 
-const OtherItems = () => {
+const ConnectedItems = () => {
     const { data } = useQuery({ queryKey: ["connections"], queryFn: GetItems });
     return (
         <div className="bg-red-400">
@@ -28,4 +28,4 @@ const OtherItems = () => {
     );
 };
 
-export default OtherItems;
+export default ConnectedItems;
