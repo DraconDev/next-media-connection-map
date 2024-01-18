@@ -10,7 +10,7 @@ type Props = {
 
 const OverlayItems = (props: Props) => {
     const { data } = useQuery({
-        queryKey: ["items", "overlay"],
+        queryKey: ["items"],
         queryFn: GetItems,
     });
 

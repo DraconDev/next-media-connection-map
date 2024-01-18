@@ -31,7 +31,7 @@ const Overlay = (props: Props) => {
     return (
         <div className="fixed top-0 left-0 w-full h-full bg-black/50 z-10 flex justify-center ">
             <div
-                className=" max-w-[1280px] w-full bg-primary border-2 border-black gap-3 flex flex-col p-1"
+                className=" max-w-[1280px] w-full bg-primary border-2 border-black gap-2 flex flex-col p-1"
                 ref={overlayRef}
             >
                 <div className="relative h-12 p-2 text-xl w-full flex justify-between items-center ">
