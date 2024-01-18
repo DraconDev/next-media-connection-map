@@ -12,7 +12,7 @@ type Props = {
 
 const OverlayItem = ({ item, connection_id }: Props) => {
     useEffect(() => {
-        AddConnectionById(5, 7);
+        AddConnectionById(9, 6);
     }, []);
 
     return (

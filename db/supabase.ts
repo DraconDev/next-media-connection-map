@@ -145,10 +145,10 @@ export async function AddConnectionById(id: number, connectionId: number) {
     console.log("connectionId", connectionId, id);
 
     try {
-        const { error } = await supabase
-            .from("items")
-            .update({ connections: { $append: [id] } }) // Use $append to match Supabase syntax
-            .eq("id", connectionId);
+        const { error } = await supabase.rpc("add_connection", {
+            p_id: id,
+            p_connect_id: connectionId,
+        });
 
         if (error) {
             throw error;
@@ -160,14 +160,14 @@ export async function AddConnectionById(id: number, connectionId: number) {
 }
 
 // get item by id
-export async function UpdateItemTitleById(id: number, connect_id: any) {
+export async function UpdateItemTitleById(id: number, value: any) {
     const supabase = await GetSupabase();
 
     try {
-        const { data, error } = await supabase.rpc("add_connection", {
-            p_id: id,
-            p_connect_id: connect_id,
-        });
+        const { data, error } = await supabase
+            .from("items")
+            .update([{ title: value }])
+            .eq("id", id);
 
         if (error) {
             throw error;
