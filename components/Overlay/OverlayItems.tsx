@@ -9,7 +9,10 @@ type Props = {
 };
 
 const OverlayItems = (props: Props) => {
-    const { data } = useQuery({ queryKey: ["items"], queryFn: GetItems });
+    const { data } = useQuery({
+        queryKey: ["items", "overlay"],
+        queryFn: GetItems,
+    });
 
     return (
         <div className=" p-1 flex gap-2 flex-wrap justify-center">
