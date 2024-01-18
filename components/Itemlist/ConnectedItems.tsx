@@ -1,3 +1,5 @@
+import { GetConnections } from "@/db/supabase";
+import { useQuery } from "@tanstack/react-query";
 import { GoPlus } from "react-icons/go";
 
 type Props = {
@@ -6,6 +8,14 @@ type Props = {
 
 const ConnectedItems = ({ connections }: Props) => {
     console.log(connections);
+
+    const { data } = useQuery({
+        queryKey: ["connections"],
+        queryFn: () => GetConnections(connections),
+    });
+
+    console.log(data);
+    
     return (
         <div className="bg-red-400">
             other card lists

@@ -68,8 +68,8 @@ const Selection = ({ params }: { params: { id: string } }) => {
                         {item?.description}
                     </div>
                 </div>
-                <ConnectedItems connections={item.connections ?? []} />
             </div>
+            <ConnectedItems connections={item.connections ?? []} />
         </div>
     );
 };

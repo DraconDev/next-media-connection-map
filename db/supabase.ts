@@ -28,6 +28,22 @@ export default async function GetItems() {
     }
 }
 
+export async function GetConnections(connections: number[]) {
+    const supabase = await GetSupabase();
+
+    try {
+        const { data } = await supabase
+            .from("items")
+            .select()
+            .eq("id", connections);
+
+        return data;
+    } catch (error) {
+        console.error("Error fetching connected items:", error);
+        throw error; // Re-throw the error for handling elsewhere
+    }
+}
+
 // add card to supabase items
 export async function AddItemToDB(
     title: string,
