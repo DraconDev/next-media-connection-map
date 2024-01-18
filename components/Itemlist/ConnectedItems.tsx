@@ -3,6 +3,7 @@ import { ItemType } from "@/type/item";
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import Overlay from "../Overlay";
+import Button from "../UI/Button";
 import Item from "./Item";
 
 const ConnectedItems = (item: ItemType) => {
@@ -19,10 +20,12 @@ const ConnectedItems = (item: ItemType) => {
 
     return (
         <div className="flex flex-col w-full justify-start">
-            {overlayToggle && <Overlay />}
+            {overlayToggle && (
+                <Overlay action={() => setOverlayToggle(false)} />
+            )}
             <div className="flex justify-between text-xl px-1 w-full">
                 <div className="">Recommendations</div>
-                <div className="">+Add</div>
+                <Button action={() => setOverlayToggle(true)}>+Add</Button>
             </div>
             <div className=" p-1 flex gap-2 flex-wrap">
                 {data &&
