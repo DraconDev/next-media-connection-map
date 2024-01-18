@@ -1,11 +1,12 @@
 "use client";
 import { useEffect, useRef } from "react";
-import Itemlist from "./Itemlist/Itemlist";
-import SearchBar from "./Navbar/SearchBar";
-import Button from "./UI/Button";
+import SearchBar from "../Navbar/SearchBar";
+import Button from "../UI/Button";
+import OverlayItems from "./OverlayItems";
 
 type Props = {
     action: () => void;
+    id?: number;
 };
 
 const Overlay = (props: Props) => {
@@ -45,7 +46,7 @@ const Overlay = (props: Props) => {
                 <div className="h-12">
                     <SearchBar />
                 </div>
-                <Itemlist />
+                <OverlayItems id={props.id} />
             </div>
         </div>
     );

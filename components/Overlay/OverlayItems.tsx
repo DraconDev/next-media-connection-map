@@ -2,13 +2,13 @@
 import GetItems from "@/db/supabase";
 import { ItemType } from "@/type/item";
 import { useQuery } from "@tanstack/react-query";
-import Item from "./Item";
+import Item from "../Itemlist/Item";
 
 type Props = {
-    connect?: (item: ItemType) => void;
+    id?: number;
 };
 
-const Itemlist = (props: Props) => {
+const OverlayItems = (props: Props) => {
     const { data } = useQuery({ queryKey: ["items"], queryFn: GetItems });
 
     return (
@@ -24,4 +24,4 @@ const Itemlist = (props: Props) => {
     );
 };
 
-export default Itemlist;
+export default OverlayItems;

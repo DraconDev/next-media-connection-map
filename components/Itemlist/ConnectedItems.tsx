@@ -2,7 +2,7 @@ import { GetConnections } from "@/db/supabase";
 import { ItemType } from "@/type/item";
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
-import Overlay from "../Overlay";
+import Overlay from "../Overlay/Overlay";
 import Button from "../UI/Button";
 import Item from "./Item";
 
@@ -21,7 +21,10 @@ const ConnectedItems = (item: ItemType) => {
     return (
         <div className="flex flex-col w-full justify-start">
             {overlayToggle && (
-                <Overlay action={() => setOverlayToggle(false)} />
+                <Overlay
+                    action={() => setOverlayToggle(false)}
+                    id={item.id}
+                />
             )}
             <div className="flex justify-between text-xl px-1 w-full">
                 <div className="">Recommendations</div>
