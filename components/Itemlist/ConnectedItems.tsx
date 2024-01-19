@@ -26,7 +26,7 @@ const ConnectedItems = (item: ItemType) => {
                     id={item.id}
                 />
             )}
-            <div className="flex justify-between text-xl px-1 w-full">
+            <div className="flex justify-between text-xl px-1 w-full items-center">
                 <div className="">Recommendations</div>
                 <Button action={() => setOverlayToggle(true)}>+Add</Button>
             </div>
