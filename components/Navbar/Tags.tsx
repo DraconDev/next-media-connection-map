@@ -18,7 +18,9 @@ const Tags = () => {
                     <ItemTag
                         key={tag}
                         tag={tag}
-                        override="text-xl text-black bg-accent"
+                        override="text-xl text-black bg-accent
+                        hover:underline
+                        underline-offset-4 decoration-4"
                     />
                 ))}
         </div>
