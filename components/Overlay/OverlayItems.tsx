@@ -5,7 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import OverlayItem from "./OverlayItem";
 
 type Props = {
-    id?: number;
+    id: number;
 };
 
 const OverlayItems = (props: Props) => {

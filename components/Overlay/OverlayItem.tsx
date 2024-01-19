@@ -7,7 +7,7 @@ import { MdOutlineAddLink } from "react-icons/md";
 
 type Props = {
     item: ItemType;
-    connection_id?: number;
+    connection_id: number;
 };
 
 const OverlayItem = ({ item, connection_id }: Props) => {
@@ -15,8 +15,15 @@ const OverlayItem = ({ item, connection_id }: Props) => {
         AddConnectionById(9, 6);
     }, []);
 
+    function handleClick() {
+        AddConnectionById(item.id, connection_id);
+    }
+
     return (
-        <button className="hover:outline outline-4 outline-accent rounded-lg bg-black">
+        <button
+            className="hover:outline outline-4 outline-accent rounded-lg bg-black"
+            onClick={handleClick}
+        >
             <div className="relative">
                 <MdOutlineAddLink className="absolute w-14 h-14 bottom-10 right-1 text-accent bg-black/50 rounded-full" />
                 <Image

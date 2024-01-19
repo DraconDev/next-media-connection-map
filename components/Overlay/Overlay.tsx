@@ -6,7 +6,7 @@ import OverlayItems from "./OverlayItems";
 
 type Props = {
     action: () => void;
-    id?: number;
+    id: number;
 };
 
 const Overlay = (props: Props) => {
