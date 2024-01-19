@@ -41,7 +41,7 @@ const Overlay = (props: Props) => {
                         action={props.action}
                         override="text-2xl"
                     >
-                        <MdCancel className="w-6 h-6 text-accent" />
+                        <MdCancel className="w-6 h-6 text-white" />
                     </Button>
                 </div>
                 <div className="h-12">
