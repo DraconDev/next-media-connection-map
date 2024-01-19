@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef } from "react";
+import { MdCancel } from "react-icons/md";
 import SearchBar from "../Navbar/SearchBar";
 import Button from "../UI/Button";
 import OverlayItems from "./OverlayItems";
@@ -40,7 +41,7 @@ const Overlay = (props: Props) => {
                         action={props.action}
                         override="text-2xl"
                     >
-                        X
+                        <MdCancel className="w-6 h-6 text-accent" />
                     </Button>
                 </div>
                 <div className="h-12">
