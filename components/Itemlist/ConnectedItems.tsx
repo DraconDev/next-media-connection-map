@@ -25,6 +25,7 @@ const ConnectedItems = ({
     const { data } = useQuery({
         queryKey: ["connections", item.id],
         queryFn: () => GetConnections(item.connections ?? []),
+        staleTime: 1000 * 3,
     });
 
     console.log(data);

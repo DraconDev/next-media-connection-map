@@ -1,7 +1,9 @@
 "use client";
 import { AddConnectionById } from "@/db/supabase";
 import { ItemType } from "@/type/item";
+import { useQueryClient } from "@tanstack/react-query";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { MdOutlineAddLink } from "react-icons/md";
 
@@ -16,9 +18,21 @@ const OverlayItem = ({ item, connection_id, action }: Props) => {
         AddConnectionById(9, 6);
     }, []);
 
+    const router = useRouter();
+
+    // useMutation({
+    //     mutationKey: ["connections", item.id],
+    //     mutationFn: () => {
+    //         () => AddConnectionById(connection_id, item.id);
+    //     },
+    // });
+    const queryCLient = useQueryClient();
+    queryCLient.invalidateQueries({ queryKey: ["connections"] });
+
     function handleClick() {
         AddConnectionById(connection_id, item.id);
         action();
+        router.replace(`/item/${connection_id}`);
     }
 
     return (
