@@ -46,7 +46,10 @@ const Overlay = (props: Props) => {
                 <div className="h-12">
                     <SearchBar />
                 </div>
-                <OverlayItems id={props.id} />
+                <OverlayItems
+                    id={props.id}
+                    close={props.action}
+                />
             </div>
         </div>
     );

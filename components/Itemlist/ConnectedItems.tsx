@@ -16,7 +16,7 @@ const ConnectedItems = (item: ItemType) => {
 
     console.log(data);
 
-    const [overlayToggle, setOverlayToggle] = useState(true);
+    const [overlayToggle, setOverlayToggle] = useState(false);
 
     return (
         <div className="flex flex-col w-full justify-start">

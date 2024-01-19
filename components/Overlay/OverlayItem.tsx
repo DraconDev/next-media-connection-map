@@ -8,6 +8,7 @@ import { MdOutlineAddLink } from "react-icons/md";
 type Props = {
     item: ItemType;
     connection_id: number;
+    close: () => void;
 };
 
 const OverlayItem = ({ item, connection_id }: Props) => {
@@ -17,6 +18,7 @@ const OverlayItem = ({ item, connection_id }: Props) => {
 
     function handleClick() {
         AddConnectionById(connection_id, item.id);
+        close();
     }
 
     return (
