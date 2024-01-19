@@ -1,6 +1,7 @@
 "use client";
 import Button from "@/components/UI/Button";
 import { AddItemToDB } from "@/db/supabase";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 type FormData = {
@@ -19,6 +20,7 @@ const AddItem = (props: Props) => {
     } = useForm<FormData>();
 
     // todo add router
+    const router = useRouter();
 
     const [tag, setTag] = useState("");
     const [tag2, setTag2] = useState("");
@@ -34,7 +36,13 @@ const AddItem = (props: Props) => {
             [tag, tag2, tag3, tag4, tag5]
                 .filter((x) => x !== "" && typeof x === "string")
                 .map((x) => x.trim())
-        );
+        )
+            .then(() => {
+                router.push("/");
+            })
+            .catch((err) => {
+                console.log(err);
+            });
     };
     return (
         <div className="p-2   justify-center  h-[80vh] w-full flex">
