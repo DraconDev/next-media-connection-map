@@ -1,3 +1,4 @@
+"use client";
 import { GetConnections } from "@/db/supabase";
 import { ItemType } from "@/type/item";
 import { useQuery } from "@tanstack/react-query";

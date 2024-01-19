@@ -13,6 +13,8 @@ import { useState } from "react";
 import { FaEdit } from "react-icons/fa";
 
 const Selection = ({ params }: { params: { id: string } }) => {
+    const [overlayToggle, setOverlayToggle] = useState(false);
+
     const { data, error, refetch } = useQuery({
         queryKey: ["item"],
         queryFn: () => GetItemById(Number(params.id)),
@@ -22,8 +24,6 @@ const Selection = ({ params }: { params: { id: string } }) => {
     if (!data) return <div>Loading...</div>;
 
     const item = data as ItemType;
-
-    const [overlayToggle, setOverlayToggle] = useState(false);
 
     function handleClick() {
         setOverlayToggle(false);
