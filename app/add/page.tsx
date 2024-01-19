@@ -18,6 +18,8 @@ const AddItem = (props: Props) => {
         formState: { errors },
     } = useForm<FormData>();
 
+    // todo add router
+
     const [tag, setTag] = useState("");
     const [tag2, setTag2] = useState("");
     const [tag3, setTag3] = useState("");
@@ -108,16 +110,6 @@ const AddItem = (props: Props) => {
                                 setTag5(e.target.value);
                             }}
                         />
-                        {/* <Button
-                            action={() => {
-                                if (tag.length > 3) {
-                                    setTags([...tags, tag]);
-                                    setTag("");
-                                }
-                            }}
-                        >
-                            Add tag
-                        </Button> */}
                     </div>
                     <div className="flex flex-col w-full">
                         <p className="description p-1 text-2xl">Description</p>

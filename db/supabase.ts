@@ -53,10 +53,16 @@ export async function AddItemToDB(
 ) {
     const supabase = await GetSupabase();
 
+    console.log("AddItemToDB", tags, description, image_url, title);
+
     try {
         const { data, error } = await supabase
             .from("items")
             .insert({ title, description, image_url, tags });
+
+        if (error) {
+            throw error;
+        }
     } catch (error) {
         console.error("Error adding item:", error);
         throw error; // Re-throw the error for handling elsewhere
