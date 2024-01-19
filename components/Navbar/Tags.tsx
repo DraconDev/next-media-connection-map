@@ -12,13 +12,13 @@ const Tags = () => {
     const dataArray = tags ? Array.from(tags) : [];
 
     return (
-        <div className="gap-2 flex items-center">
+        <div className="gap-2 flex items-center h-8">
             {dataArray &&
                 dataArray.map((tag) => (
                     <ItemTag
                         key={tag}
                         tag={tag}
-                        override="text-xl text-white border-none"
+                        override="text-xl text-black bg-accent"
                     />
                 ))}
         </div>

@@ -20,7 +20,7 @@ const ItemTag = ({ tag, override = "" }: Props) => {
         <button onClick={handleSearch}>
             <div
                 key={tag}
-                className={`text-accent bg-primary px-1 w-fit rounded-lg text-sm border-2 border-accent ${override}`}
+                className={`text-accent  px-1 w-fit rounded-lg text-sm border-2 border-accent ${override}`}
             >
                 {tag[0].toUpperCase() + tag.slice(1)}
             </div>
