@@ -18,10 +18,21 @@ const AddItem = (props: Props) => {
         formState: { errors },
     } = useForm<FormData>();
 
-    const [tags, setTags] = useState<string[]>([]);
     const [tag, setTag] = useState("");
+    const [tag2, setTag2] = useState("");
+    const [tag3, setTag3] = useState("");
+    const [tag4, setTag4] = useState("");
+    const [tag5, setTag5] = useState("");
+
     const onSubmit: SubmitHandler<FormData> = (data) => {
-        AddItemToDB(data.title, data.description, data.image_url, tags);
+        AddItemToDB(
+            data.title,
+            data.description,
+            data.image_url,
+            [tag, tag2, tag3, tag4, tag5]
+                .filter((x) => x !== "" && typeof x === "string")
+                .map((x) => x.trim())
+        );
     };
     return (
         <div className="p-2   justify-center  h-[80vh] w-full flex">
@@ -56,7 +67,7 @@ const AddItem = (props: Props) => {
                         </p>
                     </div>
                     <div className="flex flex-col gap-2 w-full">
-                        <p className="description p-1 text-2xl">Tag+</p>
+                        <p className="description p-1 text-2xl">Tags (max 5)</p>
                         <input
                             type="text"
                             className="bg-primary p-2 rounded-md"
@@ -65,7 +76,39 @@ const AddItem = (props: Props) => {
                                 setTag(e.target.value);
                             }}
                         />
-                        <Button
+                        <input
+                            type="text"
+                            className="bg-primary p-2 rounded-md"
+                            value={tag2}
+                            onChange={(e) => {
+                                setTag2(e.target.value);
+                            }}
+                        />
+                        <input
+                            type="text"
+                            className="bg-primary p-2 rounded-md"
+                            value={tag3}
+                            onChange={(e) => {
+                                setTag3(e.target.value);
+                            }}
+                        />
+                        <input
+                            type="text"
+                            className="bg-primary p-2 rounded-md"
+                            value={tag4}
+                            onChange={(e) => {
+                                setTag4(e.target.value);
+                            }}
+                        />
+                        <input
+                            type="text"
+                            className="bg-primary p-2 rounded-md"
+                            value={tag5}
+                            onChange={(e) => {
+                                setTag5(e.target.value);
+                            }}
+                        />
+                        {/* <Button
                             action={() => {
                                 if (tag.length > 3) {
                                     setTags([...tags, tag]);
@@ -74,7 +117,7 @@ const AddItem = (props: Props) => {
                             }}
                         >
                             Add tag
-                        </Button>
+                        </Button> */}
                     </div>
                     <div className="flex flex-col w-full">
                         <p className="description p-1 text-2xl">Description</p>
