@@ -17,7 +17,7 @@ const OverlayItem = ({ item, connection_id, action }: Props) => {
     }, []);
 
     function handleClick() {
-        // AddConnectionById(connection_id, item.id);
+        AddConnectionById(connection_id, item.id);
         action();
     }
 

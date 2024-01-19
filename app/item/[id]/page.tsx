@@ -9,18 +9,26 @@ import { GetItemById } from "@/db/supabase";
 import { ItemType } from "@/type/item";
 import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
+import { useState } from "react";
 import { FaEdit } from "react-icons/fa";
 
 const Selection = ({ params }: { params: { id: string } }) => {
-    const { data, error } = useQuery({
+    const { data, error, refetch } = useQuery({
         queryKey: ["item"],
         queryFn: () => GetItemById(Number(params.id)),
-        staleTime: 1000 * 5,
+        refetchOnWindowFocus: true,
     });
     if (error) return <div>Error</div>;
     if (!data) return <div>Loading...</div>;
 
     const item = data as ItemType;
+
+    const [overlayToggle, setOverlayToggle] = useState(false);
+
+    function handleClick() {
+        setOverlayToggle(false);
+        refetch();
+    }
 
     console.log(data);
     return (
@@ -70,7 +78,12 @@ const Selection = ({ params }: { params: { id: string } }) => {
                     </div>
                 </div>
             </div>
-            <ConnectedItems {...item} />
+            <ConnectedItems
+                item={item}
+                overlayToggle={overlayToggle}
+                setOverlayToggle={setOverlayToggle}
+                closeAndRefetch={handleClick}
+            />
         </div>
     );
 };
