@@ -48,7 +48,7 @@ const Overlay = (props: Props) => {
                 </div>
                 <OverlayItems
                     id={props.id}
-                    close={props.action}
+                    action={props.action}
                 />
             </div>
         </div>

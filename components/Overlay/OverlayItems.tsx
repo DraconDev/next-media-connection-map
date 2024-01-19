@@ -6,7 +6,7 @@ import OverlayItem from "./OverlayItem";
 
 type Props = {
     id: number;
-    close: () => void;
+    action: () => void;
 };
 
 const OverlayItems = (props: Props) => {
@@ -23,7 +23,7 @@ const OverlayItems = (props: Props) => {
                         key={item.id}
                         item={item}
                         connection_id={props.id}
-                        close={props.close}
+                        action={props.action}
                     />
                 ))}
         </div>

@@ -15,6 +15,7 @@ const Selection = ({ params }: { params: { id: string } }) => {
     const { data, error } = useQuery({
         queryKey: ["item"],
         queryFn: () => GetItemById(Number(params.id)),
+        staleTime: 1000 * 5,
     });
     if (error) return <div>Error</div>;
     if (!data) return <div>Loading...</div>;
