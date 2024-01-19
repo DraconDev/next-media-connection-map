@@ -39,7 +39,7 @@ const ConnectedItems = ({
                     id={item.id}
                 />
             )}
-            <div className="flex justify-between text-2xl px-2 w-full items-center">
+            <div className="flex justify-between text-2xl p-1 w-full items-center">
                 <div className="">Recommendations</div>
                 <Button
                     action={() => setOverlayToggle(true)}
@@ -48,7 +48,7 @@ const ConnectedItems = ({
                     <GoPlus className="w-9 h-9" />
                 </Button>
             </div>
-            <div className=" p-1 flex gap-2 flex-wrap">
+            <div className=" p-1 flex gap-2 flex-wrap justify-center">
                 {data &&
                     data.map((item: ItemType) => (
                         <Item
