@@ -41,6 +41,7 @@ const UpdateForm = ({ item }: Props) => {
             data.title,
             data.description,
             data.image_url,
+            item?.id,
             [tag, tag2, tag3, tag4, tag5]
                 .filter((x) => x !== "" && typeof x === "string")
                 .map((x) => x.trim())

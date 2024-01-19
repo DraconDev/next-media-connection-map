@@ -49,6 +49,7 @@ export async function AddItemToDB(
     title: string,
     description: string,
     image_url?: string,
+    id?: number | undefined,
     tags?: string[]
 ) {
     const supabase = await GetSupabase();
@@ -56,10 +57,18 @@ export async function AddItemToDB(
     console.log("AddItemToDB", tags, description, image_url, title);
 
     try {
-        const { data, error } = await supabase
-            .from("items")
-            .insert({ title, description, image_url, tags });
-
+        const { data, error } = await supabase.from("items").upsert(
+            {
+                ...(id && { id }),
+                title,
+                description,
+                image_url,
+                tags,
+            },
+            {
+                onConflict: "id",
+            }
+        );
         if (error) {
             throw error;
         }
