@@ -14,7 +14,7 @@ type Props = {
 
 const Button = (props: Props) => {
     const style =
-        "p-2 bg-primary rounded-lg  hover:bg-accen hover:text-black text-xl hover:text-primary transition-all duration-200 outline-1 outline-accent flex justify-center items-center" +
+        "p-2 bg-primary   hover:text-accent text-xl  transition-all duration-200 outline-1 outline-accent flex justify-center items-center" +
         ` ${props?.override && props.override}`;
     return props.link ? (
         <Link

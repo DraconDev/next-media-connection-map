@@ -10,7 +10,7 @@ const Rating = (item: ItemType) => {
 
     return (
         <div className="">
-            <div className="text-sm flex justify-center border-2 rounded-xl border-black mb-1">
+            <div className="text-sm flex justify-center  border-black mb-1">
                 <Button
                     override={"rounded-r-none " + ShareButtonStyle}
                     action={() => addUpvote(item)}
