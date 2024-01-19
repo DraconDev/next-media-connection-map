@@ -24,74 +24,78 @@ const AddItem = (props: Props) => {
         AddItemToDB(data.title, data.description, data.image_url, tags);
     };
     return (
-        <div className=" p-2 bg-red flex flex-col gap-3 justify-center items-center h-[80vh] w-full">
-            <h1 className="text-4xl">Add an item</h1>
-            <form
-                onSubmit={handleSubmit(onSubmit)}
-                className="flex flex-col gap-2 justify-center items-center"
-            >
-                <div className="flex flex-col">
-                    <p className="title p-1 text-2xl">Title</p>
-                    <input
-                        className="bg-primary p-2 rounded-md"
-                        {...register("title", { required: true })}
-                    />
-                    <p className="text-accent text-center">
-                        {errors.title && <span>Title is required</span>}
-                    </p>
-                </div>
-
-                <div className="flex flex-col">
-                    <p className="image_url p-1 text-2xl">Image url</p>
-                    <input
-                        className="bg-primary p-2 rounded-md"
-                        {...register("image_url", { required: true })}
-                    />
-                    <p className="text-accent text-center">
-                        {" "}
-                        {errors.image_url && <span>Image URL is required</span>}
-                    </p>
-                </div>
-                <div className="flex flex-col gap-2">
-                    <p className="description p-1 text-2xl">Tag+</p>
-                    <input
-                        type="text"
-                        className="bg-primary p-2 rounded-md"
-                        value={tag}
-                        onChange={(e) => {
-                            setTag(e.target.value);
-                        }}
-                    />
-                    <Button
-                        action={() => {
-                            if (tag.length > 3) {
-                                setTags([...tags, tag]);
-                                setTag("");
-                            }
-                        }}
-                    >
-                        Add tag
-                    </Button>
-                </div>
-                <div className="flex flex-col">
-                    <p className="description p-1 text-2xl">Description</p>
-                    <textarea
-                        className="bg-primary p-2 rounded-md min-h-[200px]"
-                        {...register("description", { required: true })}
-                    />
-                    <p className="text-accent text-center">
-                        {errors.description && (
-                            <span>Description is required</span>
-                        )}
-                    </p>
-                </div>
-                <Button
-                    type="submit"
-                    override="w-full"
+        <div className="p-2   justify-center  h-[80vh] w-full flex">
+            <div className="max-w-[400px] flex flex-col gap-3 w-full">
+                <h1 className="text-4xl text-center">Add item</h1>
+                <form
+                    onSubmit={handleSubmit(onSubmit)}
+                    className="flex flex-col gap-2 justify-center items-center w-full"
                 >
-                    Add item
-                </Button>
-            </form>
+                    <div className="flex flex-col w-full">
+                        <p className="title p-1 text-2xl">Title</p>
+                        <input
+                            className="bg-primary p-2 rounded-md"
+                            {...register("title", { required: true })}
+                        />
+                        <p className="text-accent text-center">
+                            {errors.title && <span>Title is required</span>}
+                        </p>
+                    </div>
+
+                    <div className="flex flex-col w-full">
+                        <p className="image_url p-1 text-2xl">Image url</p>
+                        <input
+                            className="bg-primary p-2 rounded-md"
+                            {...register("image_url", { required: true })}
+                        />
+                        <p className="text-accent text-center">
+                            {" "}
+                            {errors.image_url && (
+                                <span>Image URL is required</span>
+                            )}
+                        </p>
+                    </div>
+                    <div className="flex flex-col gap-2 w-full">
+                        <p className="description p-1 text-2xl">Tag+</p>
+                        <input
+                            type="text"
+                            className="bg-primary p-2 rounded-md"
+                            value={tag}
+                            onChange={(e) => {
+                                setTag(e.target.value);
+                            }}
+                        />
+                        <Button
+                            action={() => {
+                                if (tag.length > 3) {
+                                    setTags([...tags, tag]);
+                                    setTag("");
+                                }
+                            }}
+                        >
+                            Add tag
+                        </Button>
+                    </div>
+                    <div className="flex flex-col w-full">
+                        <p className="description p-1 text-2xl">Description</p>
+                        <textarea
+                            className="bg-primary p-2 rounded-md min-h-[200px]"
+                            {...register("description", { required: true })}
+                        />
+                        <p className="text-accent text-center">
+                            {errors.description && (
+                                <span>Description is required</span>
+                            )}
+                        </p>
+                    </div>
+                    <Button
+                        type="submit"
+                        override="w-full"
+                    >
+                        Add item
+                    </Button>
+                </form>
+            </div>
         </div>
     );
 };
