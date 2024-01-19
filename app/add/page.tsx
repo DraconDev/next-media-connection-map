@@ -36,13 +36,9 @@ const AddItem = (props: Props) => {
             [tag, tag2, tag3, tag4, tag5]
                 .filter((x) => x !== "" && typeof x === "string")
                 .map((x) => x.trim())
-        )
-            .then(() => {
-                router.push("/");
-            })
-            .catch((err) => {
-                console.log(err);
-            });
+        ).finally(() => {
+            router.replace("/");
+        });
     };
     return (
         <div className="p-2   justify-center  h-[80vh] w-full flex">
