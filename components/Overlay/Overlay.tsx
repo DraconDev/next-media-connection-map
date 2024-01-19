@@ -29,16 +29,16 @@ const Overlay = (props: Props) => {
     }, []);
 
     return (
-        <div className="fixed top-0 left-0 w-full h-full bg-black/50 z-10 flex justify-center ">
+        <div className="fixed  top-0 left-0 w-full h-full bg-black/50 z-10 flex justify-center ">
             <div
-                className=" max-w-[1280px] w-full bg-primary border-2 border-black gap-2 flex flex-col py-1"
+                className=" max-w-[1280px] w-full bg-primary border-2 border-black gap-4  flex flex-col "
                 ref={overlayRef}
             >
-                <div className="relative h-12 p-2 text-xl w-full flex justify-between items-center ">
-                    <div className="">Add recommendation</div>
+                <div className=" relative h-12 p-2 text-xl w-full flex justify-between items-center pt-6 px-2">
+                    <div className="text-2xl">Add recommendation</div>
                     <Button
                         action={props.action}
-                        override="  text-2xl"
+                        override="text-2xl"
                     >
                         X
                     </Button>
