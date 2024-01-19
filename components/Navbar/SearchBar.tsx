@@ -40,12 +40,12 @@ const SearchBar = (props: Props) => {
         <div className="flex w-full grow hover:outline-1 outline-accent">
             <input
                 type="text"
-                className="w-full rounded-lg rounded-r-none bg-secondary outline-none px-3 py-1 grow flex"
+                className="w-full  bg-secondary outline-none px-3 py-1 grow flex"
                 value={value}
                 onChange={(e) => setValue(e.target.value)}
             />
             <Button
-                override="bg-secondary rounded-lg rounded-l-none"
+                override="bg-secondary rounded-none"
                 action={handleSearch}
             >
                 <GrSearch className={"w-9 h-9"} />
