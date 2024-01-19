@@ -17,7 +17,7 @@ const Item = (item: ItemType) => {
                     loader={() => item.image_url ?? "/public/placeholder.jpg"}
                 ></Image>
             </Link>
-            <div className="text-xl flex items-center p-1">
+            <div className="text-xl flex items-center px-1">
                 {item.title.length > 30
                     ? item.title.slice(0, 30) + "..."
                     : item.title}
