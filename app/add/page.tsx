@@ -5,7 +5,7 @@ type Props = {};
 const AddItem = (props: Props) => {
     return (
         <div>
-            <UpdateForm />
+            <UpdateForm type="Add" />
         </div>
     );
 };

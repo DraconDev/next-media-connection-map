@@ -23,7 +23,7 @@ const Edit = ({ params }: { params: { id: string } }) => {
 
     console.log("item", item);
 
-    return <div>{item && <UpdateForm item={item} />}</div>;
+    return <div>{item && <UpdateForm item={item} type="Update"/>}</div>;
 };
 
 export default Edit;

@@ -13,9 +13,10 @@ type FormData = {
 
 type Props = {
     item?: ItemType;
+    type: string;
 };
 
-const UpdateForm = ({ item }: Props) => {
+const UpdateForm = ({ item, type }: Props) => {
     const {
         register,
         handleSubmit,
@@ -52,7 +53,7 @@ const UpdateForm = ({ item }: Props) => {
     return (
         <div className="p-2   justify-center  h-[80vh] w-full flex">
             <div className="max-w-[400px] flex flex-col gap-3 w-full">
-                <h1 className="text-4xl text-center">Add item</h1>
+                <h1 className="text-4xl text-center">{`${type} item`}</h1>
                 <form
                     onSubmit={handleSubmit(onSubmit)}
                     className="flex flex-col gap-2 justify-center items-center w-full"
@@ -140,7 +141,7 @@ const UpdateForm = ({ item }: Props) => {
                         type="submit"
                         override="w-full"
                     >
-                        Add item
+                        {`${type} item`}
                     </Button>
                 </form>
             </div>
