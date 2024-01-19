@@ -15,20 +15,26 @@ type Props = {
     item?: ItemType;
 };
 
-const UpdateForm = (props: Props) => {
+const UpdateForm = ({ item }: Props) => {
     const {
         register,
         handleSubmit,
         formState: { errors },
-    } = useForm<FormData>();
+    } = useForm<FormData>({
+        defaultValues: {
+            title: item?.title ?? "",
+            description: item?.description ?? "",
+            image_url: item?.image_url ?? "",
+        },
+    });
 
     const router = useRouter();
 
-    const [tag, setTag] = useState("");
-    const [tag2, setTag2] = useState("");
-    const [tag3, setTag3] = useState("");
-    const [tag4, setTag4] = useState("");
-    const [tag5, setTag5] = useState("");
+    const [tag, setTag] = useState(item?.tags?.[0] ?? "");
+    const [tag2, setTag2] = useState(item?.tags?.[1] ?? "");
+    const [tag3, setTag3] = useState(item?.tags?.[2] ?? "");
+    const [tag4, setTag4] = useState(item?.tags?.[3] ?? "");
+    const [tag5, setTag5] = useState(item?.tags?.[4] ?? "");
 
     const onSubmit: SubmitHandler<FormData> = (data) => {
         AddItemToDB(

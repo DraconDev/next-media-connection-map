@@ -1,4 +1,5 @@
 "use client";
+import UpdateForm from "@/components/UpdateForm/UpdateFrom";
 import { GetItemById } from "@/db/supabase";
 import { ItemType } from "@/type/item";
 import { useQuery } from "@tanstack/react-query";
@@ -22,7 +23,7 @@ const Edit = ({ params }: { params: { id: string } }) => {
 
     console.log("item", item);
 
-    return <div>{/* <UpdateForm item={props.item} /> */}</div>;
+    return <div>{item && <UpdateForm item={item} />}</div>;
 };
 
 export default Edit;
