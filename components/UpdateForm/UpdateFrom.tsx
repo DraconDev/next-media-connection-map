@@ -30,11 +30,11 @@ const UpdateForm = ({ item }: Props) => {
 
     const router = useRouter();
 
-    const [tag, setTag] = useState(item?.tags?.[0] ?? "");
-    const [tag2, setTag2] = useState(item?.tags?.[1] ?? "");
-    const [tag3, setTag3] = useState(item?.tags?.[2] ?? "");
-    const [tag4, setTag4] = useState(item?.tags?.[3] ?? "");
-    const [tag5, setTag5] = useState(item?.tags?.[4] ?? "");
+    const [tag, setTag] = useState(item?.tags ? item.tags[0] : "");
+    const [tag2, setTag2] = useState(item?.tags ? item.tags[1] : "");
+    const [tag3, setTag3] = useState(item?.tags ? item.tags[2] : "");
+    const [tag4, setTag4] = useState(item?.tags ? item.tags[3] : "");
+    const [tag5, setTag5] = useState(item?.tags ? item.tags[4] : "");
 
     const onSubmit: SubmitHandler<FormData> = (data) => {
         AddItemToDB(
