@@ -6,7 +6,7 @@ type Props = {};
 
 const Navbar = (props: Props) => {
     return (
-        <div className=" fixed w-full bg-primary  border-b-2 border-accent flex justify-center flex-col ">
+        <div className=" fixed w-full bg-primary    flex justify-center flex-col ">
             <div className="w-full flex justify-center">
                 <div className="max-w-[1280px] flex-col flex w-full ">
                     <FirstRow />
