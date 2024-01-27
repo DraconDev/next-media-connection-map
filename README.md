@@ -11,7 +11,7 @@
 -   Clean responsive ui
 -   User login
 
-### **WIP**
+### WIP
 
 -   Reviews
 
