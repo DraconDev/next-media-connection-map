@@ -4,13 +4,13 @@
 
 ## Features
 
--   DB for users to store medias
+-   DB for users to store medias= profiles
 -   Edit them and update them
 -   Rate them that is shows with a simple mobile friendly style
 -   Connect medias which serve as recommendations
 -   Clean responsive ui
 -   User login
-    **WIP**
+-   **WIP**
 -   Reviews?
 
 ## Getting started
