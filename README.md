@@ -1,6 +1,6 @@
 ![Image Alt Text](public/thumbs/medconmap.png)
 
-# Linked inspired job platform with bounties
+# User driven review and recommendation platform
 
 ## Features
 
