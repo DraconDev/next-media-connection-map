@@ -1,4 +1,4 @@
-![Image Alt Text](public/thumbs/job_board2.png)
+![Image Alt Text](public/thumbs/medconmap.png)
 
 # Linked inspired job platform with bounties
 
