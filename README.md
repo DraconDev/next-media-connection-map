@@ -10,8 +10,10 @@
 -   Connect medias which serve as recommendations
 -   Clean responsive ui
 -   User login
--   **WIP**
--   Reviews?
+
+### **WIP**
+
+-   Reviews
 
 ## Getting started
 
